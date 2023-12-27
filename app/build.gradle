@@ -7,12 +7,11 @@ android {
     flavorDimensions = ["mode", "api", "abi"]
 
     defaultConfig {
-        applicationId "com.github.tvbox.gongjin"
-        // applicationId "com.fongmi.android.tv"
+        applicationId "com.fongmi.android.tv"
         minSdk 21
         targetSdk 28
-        versionCode 213
-        versionName "2.1.3"
+        versionCode 215
+        versionName "2.1.5"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
@@ -101,7 +100,7 @@ dependencies {
     implementation 'androidx.media3:media3-exoplayer-smoothstreaming:' + media3Version
     implementation 'androidx.media3:media3-extractor:' + media3Version
     implementation 'androidx.media3:media3-session:' + media3Version
-    implementation 'androidx.media3:media3-ui:1.1.1'
+    implementation 'androidx.media3:media3-ui:' + media3Version
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.biometric:biometric:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.6.2'
@@ -113,8 +112,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:annotations:4.16.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.16.0'
     implementation 'com.github.jahirfiquitiva:TextDrawable:1.0.3'
-    // implementation 'com.github.TeamNewPipe:NewPipeExtractor:289db1178ab66694c23893e6a487d4708343c47b'
-    implementation 'com.github.teamnewpipe:NewPipeExtractor:v0.22.6'
+    implementation('com.github.TeamNewPipe:NewPipeExtractor:v0.23.1') { exclude group: 'org.jsoup', module: 'jsoup' }
     implementation('com.github.thegrizzlylabs:sardine-android:0.8') { exclude group: 'com.squareup.okhttp3', module: 'okhttp' }
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'com.google.net.cronet:cronet-okhttp:0.1.0'

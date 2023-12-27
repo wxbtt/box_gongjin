@@ -1042,7 +1042,7 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
         boolean empty = item.getVodFlags().isEmpty();
         mBinding.flag.setVisibility(empty ? View.GONE : View.VISIBLE);
         if (empty) {
-            ErrorEvent.episode();
+            ErrorEvent.flag();
         } else {
             setFlagActivated(mHistory.getFlag());
             if (mHistory.isRevSort()) reverseEpisode(true);
@@ -1213,7 +1213,7 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     }
 
     private void checkError(ErrorEvent event) {
-        if (getSite().getPlayerType() == -1 && event.isFormat() && event.getRetry() > 0 && getToggleCount() < 2 && mPlayers.getPlayer() != Players.SYS) {
+        if (getSite().getPlayerType() == -1 && event.isUrl() && event.getRetry() > 0 && getToggleCount() < 2 && mPlayers.getPlayer() != Players.SYS) {
             toggleCount++;
             nextPlayer();
         } else {

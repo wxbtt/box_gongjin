@@ -403,7 +403,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
         } else if (channel.getParse() == 1) {
             startParse(channel.result(), false);
         } else if (isIllegal(channel.getUrl())) {
-            ErrorEvent.url();
+            ErrorEvent.url(0);
         } else {
             setMediaSource(channel, timeout);
         }
@@ -415,7 +415,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
         } else if (result.getParse(1) == 1 || result.getJx() == 1) {
             startParse(result, useParse);
         } else if (isIllegal(result.getRealUrl())) {
-            ErrorEvent.url();
+            ErrorEvent.url(0);
         } else {
             setMediaSource(result, timeout);
         }
@@ -591,7 +591,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
 
     @Override
     public void onEvents(@NonNull Player player, @NonNull Player.Events events) {
-        if (!events.containsAny(EVENT_PLAYBACK_STATE_CHANGED, EVENT_PLAY_WHEN_READY_CHANGED, EVENT_IS_PLAYING_CHANGED, EVENT_TIMELINE_CHANGED, EVENT_PLAYBACK_PARAMETERS_CHANGED, EVENT_POSITION_DISCONTINUITY, EVENT_REPEAT_MODE_CHANGED, EVENT_SHUFFLE_MODE_ENABLED_CHANGED, EVENT_MEDIA_METADATA_CHANGED)) return;
+        if (!events.containsAny(Player.EVENT_PLAYBACK_STATE_CHANGED, Player.EVENT_PLAY_WHEN_READY_CHANGED, Player.EVENT_IS_PLAYING_CHANGED, Player.EVENT_TIMELINE_CHANGED, Player.EVENT_PLAYBACK_PARAMETERS_CHANGED, Player.EVENT_POSITION_DISCONTINUITY, Player.EVENT_REPEAT_MODE_CHANGED, Player.EVENT_SHUFFLE_MODE_ENABLED_CHANGED, Player.EVENT_MEDIA_METADATA_CHANGED)) return;
         setPlaybackState(isPlaying() ? PlaybackStateCompat.STATE_PLAYING : PlaybackStateCompat.STATE_PAUSED);
     }
 
@@ -602,7 +602,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
 
     @Override
     public void onPlayerError(@NonNull PlaybackException error) {
-        ErrorEvent.format(ExoUtil.getRetry(errorCode = error.errorCode));
+        ErrorEvent.url(ExoUtil.getRetry(errorCode = error.errorCode));
         setPlaybackState(PlaybackStateCompat.STATE_ERROR);
     }
 
@@ -637,7 +637,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
     @Override
     public boolean onError(IMediaPlayer mp, int what, int extra) {
         setPlaybackState(PlaybackStateCompat.STATE_ERROR);
-        ErrorEvent.format(1);
+        ErrorEvent.url(1);
         return true;
     }
 
