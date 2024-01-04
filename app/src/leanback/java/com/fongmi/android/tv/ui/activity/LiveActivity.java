@@ -120,7 +120,11 @@ public class LiveActivity extends BaseActivity implements GroupPresenter.OnClick
     }
 
     private int getPlayerType(int playerType) {
-        return playerType != -1 ? playerType : getHome().getPlayerType() != -1 ? getHome().getPlayerType() : Setting.getLivePlayer();
+        return playerType != -1 ? playerType : getHome() != null && getHome().getPlayerType() != -1 ? getHome().getPlayerType() : Setting.getLivePlayer();
+    }
+
+    private int getTimeout() {
+        return getHome() != null ? getHome().getTimeout() : Constant.TIMEOUT_PLAY;
     }
 
     @Override
@@ -221,7 +225,7 @@ public class LiveActivity extends BaseActivity implements GroupPresenter.OnClick
 
     private void setViewModel() {
         mViewModel = new ViewModelProvider(this).get(LiveViewModel.class);
-        mViewModel.url.observe(this, result -> mPlayers.start(result, getHome().getTimeout()));
+        mViewModel.url.observe(this, result -> mPlayers.start(result, getTimeout()));
         mViewModel.epg.observe(this, this::setEpg);
         mViewModel.live.observe(this, live -> {
             hideProgress();

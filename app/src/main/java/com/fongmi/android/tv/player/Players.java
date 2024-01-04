@@ -367,7 +367,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
         } else if (channel.getParse() == 1) {
             startParse(channel.result(), false);
         } else if (isIllegal(channel.getUrl())) {
-            ErrorEvent.url();
+            ErrorEvent.url(0);
         } else {
             setMediaSource(channel, timeout);
         }
@@ -379,7 +379,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
         } else if (result.getParse(1) == 1 || result.getJx() == 1) {
             startParse(result, useParse);
         } else if (isIllegal(result.getRealUrl())) {
-            ErrorEvent.url();
+            ErrorEvent.url(0);
         } else {
             setMediaSource(result, timeout);
         }
@@ -550,7 +550,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
 
     @Override
     public void onPlayerError(@NonNull PlaybackException error) {
-        ErrorEvent.format(ExoUtil.getRetry(errorCode = error.errorCode));
+        ErrorEvent.url(ExoUtil.getRetry(errorCode = error.errorCode));
     }
 
     @Override
@@ -583,7 +583,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
 
     @Override
     public boolean onError(IMediaPlayer mp, int what, int extra) {
-        ErrorEvent.format(1);
+        ErrorEvent.url(1);
         return true;
     }
 

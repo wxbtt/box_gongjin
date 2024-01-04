@@ -4,6 +4,7 @@ import android.util.Base64;
 
 import com.fongmi.android.tv.utils.UrlUtil;
 import com.github.catvod.net.OkHttp;
+import com.github.catvod.utils.Asset;
 import com.github.catvod.utils.Json;
 import com.github.catvod.utils.Path;
 import com.github.catvod.utils.Util;
@@ -22,8 +23,8 @@ public class Decoder {
         String key = url.contains(";") ? url.split(";")[2] : "";
         url = url.contains(";") ? url.split(";")[0] : url;
         String data = getData(url);
-        if (Json.valid(data)) return fix(url, data);
         if (data.isEmpty()) throw new Exception();
+        if (Json.valid(data)) return fix(url, data);
         if (data.contains("**")) data = base64(data);
         if (data.startsWith("2423")) data = cbc(data);
         if (key.length() > 0) data = ecb(data, key);
@@ -31,7 +32,7 @@ public class Decoder {
     }
 
     private static String fix(String url, String data) {
-        if (url.startsWith("file")) url = UrlUtil.convert(url);
+        if (url.startsWith("file") || url.startsWith("assets")) url = UrlUtil.convert(url);
         data = data.replace("./", url.substring(0, url.lastIndexOf("/") + 1));
         return data;
     }
@@ -57,8 +58,9 @@ public class Decoder {
     }
 
     private static String getData(String url) {
-        if (url.startsWith("http")) return OkHttp.string(url);
         if (url.startsWith("file")) return Path.read(url);
+        if (url.startsWith("assets")) return Asset.read(url);
+        if (url.startsWith("http")) return OkHttp.string(url);
         return "";
     }
 
