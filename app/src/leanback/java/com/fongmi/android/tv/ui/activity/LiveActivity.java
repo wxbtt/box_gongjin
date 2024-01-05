@@ -120,11 +120,11 @@ public class LiveActivity extends BaseActivity implements GroupPresenter.OnClick
     }
 
     private int getPlayerType(int playerType) {
-        return playerType != -1 ? playerType : getHome() != null && getHome().getPlayerType() != -1 ? getHome().getPlayerType() : Setting.getLivePlayer();
+        return playerType != -1 ? playerType : Setting.getLivePlayer();
     }
 
     private int getTimeout() {
-        return getHome() != null ? getHome().getTimeout() : Constant.TIMEOUT_PLAY;
+        return getHome().isEmpty() ? Constant.TIMEOUT_PLAY : getHome().getTimeout();
     }
 
     @Override
