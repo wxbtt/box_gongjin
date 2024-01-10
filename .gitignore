@@ -6,3 +6,5 @@
 /media*
 /Release
 *.DS_Store
+app/mobileJavaArm64_v8a/*
+app/leanbackJavaArmeabi_v7a/*
