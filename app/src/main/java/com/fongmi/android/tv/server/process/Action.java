@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.Constant;
-import com.fongmi.android.tv.api.ApiConfig;
+import com.fongmi.android.tv.api.config.VodConfig;
 import com.fongmi.android.tv.bean.Config;
 import com.fongmi.android.tv.bean.Device;
 import com.fongmi.android.tv.bean.History;
@@ -137,7 +137,7 @@ public class Action implements Process {
         try {
             String url = params.get("url");
             FormBody.Builder body = new FormBody.Builder();
-            body.add("url", TextUtils.isEmpty(url) ? ApiConfig.getUrl() : url);
+            body.add("url", TextUtils.isEmpty(url) ? VodConfig.getUrl() : url);
             body.add("targets", App.gson().toJson(History.get(Config.find(url, 0).getId())));
             OkHttp.newCall(OkHttp.client(Constant.TIMEOUT_SYNC), device.getIp().concat("/action?do=sync&mode=0&type=history"), body.build()).execute();
         } catch (Exception e) {
@@ -162,11 +162,11 @@ public class Action implements Process {
         Config config = Config.find(url, 0);
         boolean replace = Objects.equals(params.get("mode"), "1");
         List<History> targets = History.arrayFrom(params.get("targets"));
-        if (ApiConfig.get().getConfig().equals(config)) {
+        if (VodConfig.get().getConfig().equals(config)) {
             if (replace) History.delete(config.getId());
             History.sync(targets);
         } else {
-            ApiConfig.load(config, getCallback(targets));
+            VodConfig.load(config, getCallback(targets));
         }
     }
 
@@ -190,8 +190,8 @@ public class Action implements Process {
         List<Config> configs = Config.arrayFrom(params.get("configs"));
         List<Keep> targets = Keep.arrayFrom(params.get("targets"));
         boolean replace = Objects.equals(params.get("mode"), "1");
-        if (ApiConfig.getUrl().isEmpty() && configs.size() > 0) {
-            ApiConfig.load(Config.find(configs.get(0), 0), getCallback(configs, targets));
+        if (VodConfig.getUrl().isEmpty() && configs.size() > 0) {
+            VodConfig.load(Config.find(configs.get(0), 0), getCallback(configs, targets));
         } else {
             if (replace) Keep.deleteAll();
             Keep.sync(configs, targets);
