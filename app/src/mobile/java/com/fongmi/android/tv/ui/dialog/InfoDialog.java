@@ -1,6 +1,7 @@
 package com.fongmi.android.tv.ui.dialog;
 
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -65,12 +66,14 @@ public class InfoDialog {
         binding.url.setText(url);
         binding.title.setText(title);
         binding.header.setText(header);
-        binding.header.setVisibility(header.isEmpty() ? View.GONE : View.VISIBLE);
+        binding.url.setVisibility(TextUtils.isEmpty(url) ? View.GONE : View.VISIBLE);
+        binding.header.setVisibility(TextUtils.isEmpty(header) ? View.GONE : View.VISIBLE);
     }
 
     private void initEvent() {
         binding.url.setOnClickListener(this::onShare);
-        binding.url.setOnLongClickListener(this::onCopy);
+        binding.url.setOnLongClickListener(v -> onCopy(url));
+        binding.header.setOnLongClickListener(v -> onCopy(header));
     }
 
     private void onShare(View view) {
@@ -78,9 +81,9 @@ public class InfoDialog {
         dialog.dismiss();
     }
 
-    private boolean onCopy(View view) {
+    private boolean onCopy(String text) {
         Notify.show(R.string.copied);
-        Util.copy(url);
+        Util.copy(text);
         return true;
     }
 

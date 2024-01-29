@@ -23,7 +23,6 @@ import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Json;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import org.json.JSONObject;
 
@@ -131,7 +130,7 @@ public class VodConfig {
     private void loadConfig(Callback callback) {
         try {
             App.post(() -> callback.error("本软件为免费开源项目, 以学习交流为目的, 所有内容来自网络公开数据, 不涉及制作、上传及储存内容, 如有广告均为三方提供, 请勿相信!\n关注[码上放生]公众号, 获取最新的[时光机]数据源"));
-            checkJson(JsonParser.parseString(Decoder.getJson(getUrl())).getAsJsonObject(), callback);
+            checkJson(Json.parse(Decoder.getJson(config.getUrl())).getAsJsonObject(), callback);
         } catch (Throwable e) {
             if (TextUtils.isEmpty(config.getUrl())) {
                 App.post(() -> callback.error("关注【码上放生】公众号, 获取免费更新"));
@@ -150,7 +149,7 @@ public class VodConfig {
     }
 
     private void loadCache(Callback callback, Throwable e) {
-        if (!TextUtils.isEmpty(config.getJson())) checkJson(JsonParser.parseString(config.getJson()).getAsJsonObject(), callback);
+        if (!TextUtils.isEmpty(config.getJson())) checkJson(Json.parse(config.getJson()).getAsJsonObject(), callback);
         else App.post(() -> callback.error(Notify.getError(R.string.error_config_get, e)));
     }
 
@@ -187,6 +186,10 @@ public class VodConfig {
     }
 
     private void initSite(JsonObject object) {
+        if (object.has("video")) {
+            initSite(object.getAsJsonObject("video"));
+            return;
+        }
         for (JsonElement element : Json.safeListElement(object, "sites")) {
             Site site = Site.objectFrom(element);
             if (sites.contains(site)) continue;
