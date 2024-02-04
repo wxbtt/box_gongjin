@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.fongmi.android.tv",
+  "variantName": "mobilePythonArm64_v8aRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 224,
+      "versionName": "2.2.4",
+      "outputFile": "mobile-python-arm64_v8a.apk"
+    }
+  ],
+  "elementType": "File"
+}
