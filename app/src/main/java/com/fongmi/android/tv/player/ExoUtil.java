@@ -57,8 +57,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import okhttp3.Call;
-
 public class ExoUtil {
 
     private static HttpDataSource.Factory httpDataSourceFactory;
@@ -78,7 +76,7 @@ public class ExoUtil {
     }
 
     public static RenderersFactory buildRenderersFactory() {
-        return new DefaultRenderersFactory(App.get()).setEnableDecoderFallback(true).setExtensionRendererMode(Math.abs(Setting.getDecode() - 2));
+        return new DefaultRenderersFactory(App.get()).setEnableDecoderFallback(true).setExtensionRendererMode(Math.abs(Setting.getDecode(Players.EXO) - 2));
     }
 
     public static CaptionStyleCompat getCaptionStyle() {
@@ -86,9 +84,7 @@ public class ExoUtil {
     }
 
     public static int getRetry(int errorCode) {
-        if (errorCode == PlaybackException.ERROR_CODE_IO_NETWORK_CONNECTION_FAILED || errorCode == PlaybackException.ERROR_CODE_IO_FILE_NOT_FOUND) return 0;
-        if (errorCode == PlaybackException.ERROR_CODE_PARSING_MANIFEST_MALFORMED || errorCode == PlaybackException.ERROR_CODE_PARSING_CONTAINER_UNSUPPORTED || errorCode == PlaybackException.ERROR_CODE_IO_UNSPECIFIED) return 2;
-        return 1;
+        return errorCode >= PlaybackException.ERROR_CODE_PARSING_CONTAINER_MALFORMED && errorCode <= PlaybackException.ERROR_CODE_PARSING_MANIFEST_UNSUPPORTED ? 2 : 1;
     }
 
     public static boolean haveTrack(Tracks tracks, int type) {
@@ -117,6 +113,13 @@ public class ExoUtil {
         return MimeTypes.APPLICATION_SUBRIP;
     }
 
+    private static String getMimeType(String format, int errorCode) {
+        if (format != null) return format;
+        if (errorCode == PlaybackException.ERROR_CODE_PARSING_MANIFEST_UNSUPPORTED || errorCode == PlaybackException.ERROR_CODE_PARSING_MANIFEST_MALFORMED) return MimeTypes.APPLICATION_OCTET;
+        if (errorCode == PlaybackException.ERROR_CODE_PARSING_CONTAINER_UNSUPPORTED || errorCode == PlaybackException.ERROR_CODE_PARSING_CONTAINER_MALFORMED) return MimeTypes.APPLICATION_M3U8;
+        return null;
+    }
+
     public static MediaSource getSource(Result result, Sub sub, int errorCode) {
         return getSource(result.getHeaders(), result.getRealUrl(), result.getFormat(), result.getSubs(), sub, null, errorCode);
     }
@@ -133,7 +136,7 @@ public class ExoUtil {
         Uri uri = UrlUtil.uri(url);
         if (sub != null) subs.add(sub);
         String mimeType = getMimeType(format, errorCode);
-        if (uri.getUserInfo() != null) headers.put(HttpHeaders.AUTHORIZATION, Util.basic(uri));
+        if (uri.getUserInfo() != null) headers.put(HttpHeaders.AUTHORIZATION, Util.basic(uri.getUserInfo()));
         return new DefaultMediaSourceFactory(getDataSourceFactory(headers), getExtractorsFactory()).createMediaSource(getMediaItem(uri, mimeType, subs, drm));
     }
 
@@ -141,17 +144,10 @@ public class ExoUtil {
         MediaItem.Builder builder = new MediaItem.Builder().setUri(uri);
         if (subs.size() > 0) builder.setSubtitleConfigurations(getSubtitles(subs));
         if (drm != null) builder.setDrmConfiguration(drm.get());
-        builder.setAllowChunklessPreparation(Players.isHard());
+        builder.setAllowChunklessPreparation(Players.isHard(Players.EXO));
         if (mimeType != null) builder.setMimeType(mimeType);
         builder.setAds(Sniffer.getRegex(uri));
         return builder.build();
-    }
-
-    private static String getMimeType(String format, int errorCode) {
-        if (format != null) return format;
-        if (errorCode == PlaybackException.ERROR_CODE_PARSING_MANIFEST_MALFORMED) return MimeTypes.APPLICATION_OCTET;
-        if (errorCode == PlaybackException.ERROR_CODE_PARSING_CONTAINER_UNSUPPORTED || errorCode == PlaybackException.ERROR_CODE_IO_UNSPECIFIED) return MimeTypes.APPLICATION_M3U8;
-        return null;
     }
 
     private static List<MediaItem.SubtitleConfiguration> getSubtitles(List<Sub> subs) {
@@ -187,7 +183,7 @@ public class ExoUtil {
     }
 
     private static synchronized HttpDataSource.Factory getHttpDataSourceFactory() {
-        if (httpDataSourceFactory == null) httpDataSourceFactory = Setting.getHttp() == 0 ? new DefaultHttpDataSource.Factory().setAllowCrossProtocolRedirects(true) : new OkHttpDataSource.Factory((Call.Factory) OkHttp.client());
+        if (httpDataSourceFactory == null) httpDataSourceFactory = Setting.getHttp() == 0 ? new DefaultHttpDataSource.Factory().setAllowCrossProtocolRedirects(true) : new OkHttpDataSource.Factory(OkHttp.client());
         return httpDataSourceFactory;
     }
 

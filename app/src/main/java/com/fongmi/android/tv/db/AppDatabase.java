@@ -29,6 +29,7 @@ import com.fongmi.android.tv.db.dao.TrackDao;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.Util;
 import com.github.catvod.utils.Path;
+import com.github.catvod.utils.Prefers;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -37,7 +38,7 @@ import java.util.Locale;
 @Database(entities = {Keep.class, Site.class, Live.class, Track.class, Config.class, Device.class, History.class}, version = AppDatabase.VERSION)
 public abstract class AppDatabase extends RoomDatabase {
 
-    public static final int VERSION = 27;
+    public static final int VERSION = 29;
     public static final String NAME = "tv";
     public static final String SYMBOL = "@@@";
 
@@ -48,13 +49,12 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance;
     }
 
-    public static String getDate() {
-        File db = new File(Path.tv(), NAME);
-        return Setting.isBackupAuto() ? ResUtil.getString(R.string.setting_backup_auto) : getBackupKey().exists() && db.exists() ? Util.format(new SimpleDateFormat("MMddHHmmss", Locale.getDefault()), db.lastModified()) : "";
+    public static File getBackup() {
+        return new File(Path.tv(), NAME);
     }
 
-    public static File getBackupKey() {
-        return new File(Path.tv(), "." + Util.getDeviceId());
+    public static String getDate() {
+        return Setting.isBackupAuto() ? ResUtil.getString(R.string.setting_backup_auto) : getBackup().exists() ? Util.format(new SimpleDateFormat("MMddHHmmss", Locale.getDefault()), getBackup().lastModified()) : "";
     }
 
     public static void backup() {
@@ -69,22 +69,7 @@ public abstract class AppDatabase extends RoomDatabase {
             if (db.exists()) Path.copy(db, new File(Path.tv(), db.getName()));
             if (wal.exists()) Path.copy(wal, new File(Path.tv(), wal.getName()));
             if (shm.exists()) Path.copy(shm, new File(Path.tv(), shm.getName()));
-            Path.newFile(getBackupKey());
             App.post(callback::success);
-        });
-    }
-
-    public static void restore(com.fongmi.android.tv.impl.Callback callback) {
-        App.execute(() -> {
-            File db = new File(Path.tv(), NAME);
-            File wal = new File(Path.tv(), NAME + "-wal");
-            File shm = new File(Path.tv(), NAME + "-shm");
-            File pref = new File(Path.tv(), NAME + "-pref");
-            if (db.exists()) Path.move(db, App.get().getDatabasePath(db.getName()).getAbsoluteFile());
-            if (wal.exists()) Path.move(wal, App.get().getDatabasePath(wal.getName()).getAbsoluteFile());
-            if (shm.exists()) Path.move(shm, App.get().getDatabasePath(shm.getName()).getAbsoluteFile());
-            App.post(callback::success);
-            Path.clear(Path.tv());
         });
     }
 
@@ -106,9 +91,9 @@ public abstract class AppDatabase extends RoomDatabase {
                 .addMigrations(MIGRATION_24_25)
                 .addMigrations(MIGRATION_25_26)
                 .addMigrations(MIGRATION_26_27)
-                .allowMainThreadQueries()
-                .fallbackToDestructiveMigration()
-                .build();
+                .addMigrations(MIGRATION_27_28)
+                .addMigrations(MIGRATION_28_29)
+                .allowMainThreadQueries().fallbackToDestructiveMigration().build();
     }
 
     public abstract KeepDao getKeepDao();
@@ -244,6 +229,23 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             database.execSQL("CREATE TABLE IF NOT EXISTS `Live` (`name` TEXT NOT NULL, `boot` INTEGER NOT NULL, `pass` INTEGER NOT NULL, PRIMARY KEY(`name`))");
+        }
+    };
+
+    static final Migration MIGRATION_27_28 = new Migration(27, 28) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            Prefers.remove("danmu_size");
+        }
+    };
+
+    static final Migration MIGRATION_28_29 = new Migration(28, 29) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE TABLE Site_Backup (`key` TEXT NOT NULL, searchable INTEGER, changeable INTEGER, PRIMARY KEY (`key`))");
+            database.execSQL("INSERT INTO Site_Backup SELECT `key`, searchable, changeable FROM Site");
+            database.execSQL("DROP TABLE Site");
+            database.execSQL("ALTER TABLE Site_Backup RENAME to Site");
         }
     };
 }

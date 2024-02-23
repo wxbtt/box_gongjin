@@ -77,8 +77,9 @@ public class Action implements Process {
 
     private void onSetting(Map<String, String> params) {
         String text = params.get("text");
+        String name = params.get("name");
         if (TextUtils.isEmpty(text)) return;
-        ServerEvent.setting(text);
+        ServerEvent.setting(text, name);
     }
 
     private void onFile(Map<String, String> params) {
@@ -190,7 +191,7 @@ public class Action implements Process {
         List<Config> configs = Config.arrayFrom(params.get("configs"));
         List<Keep> targets = Keep.arrayFrom(params.get("targets"));
         boolean replace = Objects.equals(params.get("mode"), "1");
-        if (VodConfig.getUrl().isEmpty() && configs.size() > 0) {
+        if (TextUtils.isEmpty(VodConfig.getUrl()) && configs.size() > 0) {
             VodConfig.load(Config.find(configs.get(0), 0), getCallback(configs, targets));
         } else {
             if (replace) Keep.deleteAll();

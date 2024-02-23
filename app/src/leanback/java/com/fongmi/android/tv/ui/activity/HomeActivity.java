@@ -1,8 +1,6 @@
 package com.fongmi.android.tv.ui.activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -20,6 +18,7 @@ import com.android.cast.dlna.dmr.DLNARendererService;
 import com.fongmi.android.tv.App;
 import com.fongmi.android.tv.Product;
 import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
 import com.fongmi.android.tv.Updater;
 import com.fongmi.android.tv.api.config.LiveConfig;
 import com.fongmi.android.tv.api.config.VodConfig;
@@ -57,7 +56,6 @@ import com.fongmi.android.tv.utils.Notify;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.UrlUtil;
 import com.google.common.collect.Lists;
-import com.permissionx.guolindev.PermissionX;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -99,6 +97,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
         Updater.get().start(this);
         mResult = Result.empty();
         Server.get().start();
+        setTitleView();
         setRecyclerView();
         setViewModel();
         setAdapter();
@@ -127,6 +126,10 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
                 VideoActivity.push(this, intent.getData().toString());
             }
         }
+    }
+
+    private void setTitleView() {
+        mBinding.homeSiteLock.setVisibility(Setting.isHomeSiteLock() ? View.VISIBLE : View.GONE);
     }
 
     private void setRecyclerView() {
@@ -176,22 +179,12 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
             @Override
             public void error(String msg) {
-                if (TextUtils.isEmpty(msg) && AppDatabase.getBackupKey().exists()) onRestore();
-                else mBinding.progressLayout.showContent();
+                mBinding.progressLayout.showContent();
                 mResult = Result.empty();
                 Notify.show(msg);
                 setFocus();
             }
         };
-    }
-
-    private void onRestore() {
-        PermissionX.init(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).request((allGranted, grantedList, deniedList) -> AppDatabase.restore(new Callback() {
-            @Override
-            public void success() {
-                initConfig();
-            }
-        }));
     }
 
     private void loadLive(String url) {
@@ -237,6 +230,8 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
         adapter.add(Func.create(R.string.home_keep));
         adapter.add(Func.create(R.string.home_push));
         adapter.add(Func.create(R.string.home_setting));
+        ((Func) adapter.get(0)).setNextFocusLeft(((Func) adapter.get(adapter.size() - 1)).getId());
+        ((Func) adapter.get(adapter.size() - 1)).setNextFocusRight(((Func) adapter.get(0)).getId());
         return new ListRow(adapter);
     }
 
@@ -317,7 +312,8 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
     @Override
     public void onItemClick(Vod item) {
-        VideoActivity.start(this, item.getVodId(), item.getVodName(), item.getVodPic());
+        if (getHome().isIndexs()) CollectActivity.start(this, item.getVodName());
+        else VideoActivity.start(this, item.getVodId(), item.getVodName(), item.getVodPic());
     }
 
     @Override
@@ -348,6 +344,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
     @Override
     public void showDialog() {
+        if (Setting.isHomeSiteLock()) return;
         SiteDialog.create(this).show();
     }
 
@@ -434,6 +431,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
     protected void onResume() {
         super.onResume();
         mClock.start();
+        setTitleView();
     }
 
     @Override

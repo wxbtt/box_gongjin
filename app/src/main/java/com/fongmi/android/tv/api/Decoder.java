@@ -33,7 +33,7 @@ public class Decoder {
 
     private static String fix(String url, String data) {
         if (url.startsWith("file") || url.startsWith("assets")) url = UrlUtil.convert(url);
-        data = data.replace("./", url.substring(0, url.lastIndexOf("/") + 1));
+        data = data.replace("./", url.substring(0, url.split("\\?")[0].lastIndexOf("/") + 1));
         return data;
     }
 
@@ -45,13 +45,11 @@ public class Decoder {
         }
     }
 
-    public static File getSpider(String url, String md5) {
+    public static File getSpider(String url) {
         try {
             File file = Path.jar(url);
-            if (md5.length() > 0 && Util.equals(url, md5)) return file;
             String data = extract(getData(url.substring(4)));
-            if (data.isEmpty()) return Path.jar(url);
-            return Path.write(file, Base64.decode(data, Base64.DEFAULT));
+            return data.isEmpty() ? file : Path.write(file, Base64.decode(data, Base64.DEFAULT));
         } catch (Exception ignored) {
             return Path.jar(url);
         }
