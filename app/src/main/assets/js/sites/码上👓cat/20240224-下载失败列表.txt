@@ -1,4 +1,5 @@
 文件下载失败: https://d.kstore.space/download/6296/json/短剧.json, ./sites/码上👓cat/短剧.json
+连接超时: http://like.xn--z7x900a.live:66/jar/PandaQ231205.jar, ./sites/码上👓cat/PandaQ231205.jar
 文件下载失败: https://fanty.run.goorm.site/ext/js/drpy2.min.js, ./sites/码上👓cat/drpy2.min.js
 文件下载失败: https://fanty.run.goorm.site/ext/jp.js, ./sites/码上👓cat/jp.js
 文件下载失败: https://fanty.run.goorm.site/ext/nmys.json, ./sites/码上👓cat/nmys.json
