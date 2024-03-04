@@ -3,6 +3,5 @@
 *build
 *.jks
 /local.properties
-/media*
 /Release
 .DS_Store
