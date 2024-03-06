@@ -79,11 +79,16 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
     }
 
     private void initView() {
-        binding.text.setText(url = getUrl());
+        String address = Server.get().getAddress();
+        //  binding.text.setText(url = getUrl());
+        // 这里判断有名字就不回写到设置框里，例如名字是：源已内置
+        if (TextUtils.isEmpty(getName())) {
+            binding.text.setText(url = getUrl());
+        }
         binding.text.setSelection(TextUtils.isEmpty(url) ? 0 : url.length());
         binding.positive.setText(edit ? R.string.dialog_edit : R.string.dialog_positive);
-        binding.code.setImageBitmap(QRCode.getBitmap(Server.get().getAddress(3), 200, 0));
-        binding.info.setText(ResUtil.getString(R.string.push_info, Server.get().getAddress()).replace("，", "\n"));
+        binding.code.setImageBitmap(QRCode.getBitmap(address, 200, 0));
+        binding.info.setText(ResUtil.getString(R.string.push_info, address).replace("，", "\n"));
         binding.storage.setVisibility(PermissionX.isGranted(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) ? View.GONE : View.VISIBLE);
     }
 
@@ -102,6 +107,19 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
             if (actionId == EditorInfo.IME_ACTION_DONE) binding.positive.performClick();
             return true;
         });
+    }
+
+    private String getName() {
+        switch (type) {
+            case 0:
+                return VodConfig.get().getConfig().getName();
+            case 1:
+                return LiveConfig.get().getConfig().getName();
+            case 2:
+                return WallConfig.get().getConfig().getName();
+            default:
+                return "";
+        }
     }
 
     private String getUrl() {
@@ -142,7 +160,12 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
         String name = binding.name.getText().toString().trim();
         String text = binding.text.getText().toString().trim();
         if (edit) Config.find(url, type).url(text).update();
-        if (text.isEmpty()) Config.delete(url, type);
+        // if (text.isEmpty()) Config.delete(url, type);
+        if (text.isEmpty()) {
+            url = "https://atomgit.com/lintech/tms/raw/master/source/stable/main.json";
+            Config.find(url, 1).name("插兜的时光机，关注「码上放生」").update();
+            //Config.delete(ori, type);
+        }
         if (name.isEmpty()) callback.setConfig(Config.find(text, type));
         else callback.setConfig(Config.find(text, name, type));
         dialog.dismiss();
