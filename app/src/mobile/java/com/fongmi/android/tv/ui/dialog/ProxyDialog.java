@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.dialog;
+package com.fongmi.android.tv_gongjin.ui.dialog;
 
 import android.content.DialogInterface;
 import android.text.TextUtils;
@@ -8,11 +8,11 @@ import android.view.inputmethod.EditorInfo;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.databinding.DialogProxyBinding;
-import com.fongmi.android.gongjin.impl.ProxyCallback;
-import com.fongmi.android.gongjin.ui.custom.CustomTextListener;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.databinding.DialogProxyBinding;
+import com.fongmi.android.tv_gongjin.impl.ProxyCallback;
+import com.fongmi.android.tv_gongjin.ui.custom.CustomTextListener;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ProxyDialog {

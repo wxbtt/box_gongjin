@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.activity;
+package com.fongmi.android.tv_gongjin.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,19 +19,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
 
-import com.fongmi.android.gongjin.App;
-import com.fongmi.android.gongjin.Constant;
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.bean.Collect;
-import com.fongmi.android.gongjin.bean.Site;
-import com.fongmi.android.gongjin.databinding.ActivityCollectBinding;
-import com.fongmi.android.gongjin.model.SiteViewModel;
-import com.fongmi.android.gongjin.ui.base.BaseActivity;
-import com.fongmi.android.gongjin.ui.fragment.CollectFragment;
-import com.fongmi.android.gongjin.ui.presenter.CollectPresenter;
-import com.fongmi.android.gongjin.utils.PauseExecutor;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.App;
+import com.fongmi.android.tv_gongjin.Constant;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.bean.Collect;
+import com.fongmi.android.tv_gongjin.bean.Site;
+import com.fongmi.android.tv_gongjin.databinding.ActivityCollectBinding;
+import com.fongmi.android.tv_gongjin.model.SiteViewModel;
+import com.fongmi.android.tv_gongjin.ui.base.BaseActivity;
+import com.fongmi.android.tv_gongjin.ui.fragment.CollectFragment;
+import com.fongmi.android.tv_gongjin.ui.presenter.CollectPresenter;
+import com.fongmi.android.tv_gongjin.utils.PauseExecutor;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 import java.util.ArrayList;
 import java.util.List;

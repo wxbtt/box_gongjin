@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.presenter;
+package com.fongmi.android.tv_gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.gongjin.databinding.AdapterProgressBinding;
+import com.fongmi.android.tv_gongjin.databinding.AdapterProgressBinding;
 
 public class ProgressPresenter extends Presenter {
 

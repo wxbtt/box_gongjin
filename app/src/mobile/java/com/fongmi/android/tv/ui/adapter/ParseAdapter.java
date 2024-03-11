@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.adapter;
+package com.fongmi.android.tv_gongjin.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,11 +7,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.bean.Parse;
-import com.fongmi.android.gongjin.databinding.AdapterParseDarkBinding;
-import com.fongmi.android.gongjin.databinding.AdapterParseLightBinding;
-import com.fongmi.android.gongjin.ui.base.ViewType;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.bean.Parse;
+import com.fongmi.android.tv_gongjin.databinding.AdapterParseDarkBinding;
+import com.fongmi.android.tv_gongjin.databinding.AdapterParseLightBinding;
+import com.fongmi.android.tv_gongjin.ui.base.ViewType;
 
 import java.util.List;
 

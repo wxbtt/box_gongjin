@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.presenter;
+package com.fongmi.android.tv_gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.gongjin.Product;
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.bean.History;
-import com.fongmi.android.gongjin.databinding.AdapterVodBinding;
-import com.fongmi.android.gongjin.utils.ImgUtil;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.Product;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.bean.History;
+import com.fongmi.android.tv_gongjin.databinding.AdapterVodBinding;
+import com.fongmi.android.tv_gongjin.utils.ImgUtil;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 public class HistoryPresenter extends Presenter {
 

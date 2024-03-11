@@ -211,7 +211,7 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <com.fongmi.android.gongjin.ui.custom.CustomSeekView
+            <com.fongmi.android.tv_gongjin.ui.custom.CustomSeekView
                 android:id="@+id/seek"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

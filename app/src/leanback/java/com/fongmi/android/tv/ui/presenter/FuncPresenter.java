@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.presenter;
+package com.fongmi.android.tv_gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,10 +6,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.bean.Func;
-import com.fongmi.android.gongjin.databinding.AdapterFuncBinding;
-import com.fongmi.android.gongjin.databinding.AdapterFuncHorizontalBinding;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.bean.Func;
+import com.fongmi.android.tv_gongjin.databinding.AdapterFuncBinding;
+import com.fongmi.android.tv_gongjin.databinding.AdapterFuncHorizontalBinding;
 
 public class FuncPresenter extends Presenter {
 

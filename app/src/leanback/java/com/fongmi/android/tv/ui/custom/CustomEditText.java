@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.fongmi.android.gongjin.utils.KeyUtil;
+import com.fongmi.android.tv_gongjin.utils.KeyUtil;
 
 public class CustomEditText extends AppCompatEditText {
 

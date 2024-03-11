@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin;
+package com.fongmi.android.tv_gongjin;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -6,13 +6,11 @@ import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.fongmi.android.gongjin.App;
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.databinding.DialogUpdateBinding;
-import com.fongmi.android.gongjin.utils.Download;
-import com.fongmi.android.gongjin.utils.FileUtil;
-import com.fongmi.android.gongjin.utils.Notify;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.databinding.DialogUpdateBinding;
+import com.fongmi.android.tv_gongjin.utils.Download;
+import com.fongmi.android.tv_gongjin.utils.FileUtil;
+import com.fongmi.android.tv_gongjin.utils.Notify;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Github;
 import com.github.catvod.utils.Path;

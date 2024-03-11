@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.dialog;
+package com.fongmi.android.tv_gongjin.ui.dialog;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +9,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.bean.History;
-import com.fongmi.android.gongjin.databinding.DialogReceiveBinding;
-import com.fongmi.android.gongjin.event.CastEvent;
-import com.fongmi.android.gongjin.event.RefreshEvent;
-import com.fongmi.android.gongjin.impl.Callback;
-import com.fongmi.android.gongjin.ui.activity.VideoActivity;
-import com.fongmi.android.gongjin.utils.ImgUtil;
-import com.fongmi.android.gongjin.utils.Notify;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.bean.History;
+import com.fongmi.android.tv_gongjin.databinding.DialogReceiveBinding;
+import com.fongmi.android.tv_gongjin.event.CastEvent;
+import com.fongmi.android.tv_gongjin.event.RefreshEvent;
+import com.fongmi.android.tv_gongjin.impl.Callback;
+import com.fongmi.android.tv_gongjin.ui.activity.VideoActivity;
+import com.fongmi.android.tv_gongjin.utils.ImgUtil;
+import com.fongmi.android.tv_gongjin.utils.Notify;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class ReceiveDialog extends BaseDialog {

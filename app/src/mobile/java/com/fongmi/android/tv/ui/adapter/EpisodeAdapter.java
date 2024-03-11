@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.adapter;
+package com.fongmi.android.tv_gongjin.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,15 +6,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.gongjin.bean.Episode;
-import com.fongmi.android.gongjin.databinding.AdapterEpisodeGridBinding;
-import com.fongmi.android.gongjin.databinding.AdapterEpisodeHoriBinding;
-import com.fongmi.android.gongjin.databinding.AdapterEpisodeVertBinding;
-import com.fongmi.android.gongjin.ui.base.BaseEpisodeHolder;
-import com.fongmi.android.gongjin.ui.base.ViewType;
-import com.fongmi.android.gongjin.ui.holder.EpisodeGridHolder;
-import com.fongmi.android.gongjin.ui.holder.EpisodeHoriHolder;
-import com.fongmi.android.gongjin.ui.holder.EpisodeVertHolder;
+import com.fongmi.android.tv_gongjin.bean.Episode;
+import com.fongmi.android.tv_gongjin.databinding.AdapterEpisodeGridBinding;
+import com.fongmi.android.tv_gongjin.databinding.AdapterEpisodeHoriBinding;
+import com.fongmi.android.tv_gongjin.databinding.AdapterEpisodeVertBinding;
+import com.fongmi.android.tv_gongjin.ui.base.BaseEpisodeHolder;
+import com.fongmi.android.tv_gongjin.ui.base.ViewType;
+import com.fongmi.android.tv_gongjin.ui.holder.EpisodeGridHolder;
+import com.fongmi.android.tv_gongjin.ui.holder.EpisodeHoriHolder;
+import com.fongmi.android.tv_gongjin.ui.holder.EpisodeVertHolder;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.presenter;
+package com.fongmi.android.tv_gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.gongjin.bean.Group;
-import com.fongmi.android.gongjin.databinding.AdapterGroupBinding;
+import com.fongmi.android.tv_gongjin.bean.Group;
+import com.fongmi.android.tv_gongjin.databinding.AdapterGroupBinding;
 
 public class GroupPresenter extends Presenter {
 

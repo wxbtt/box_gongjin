@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,9 +10,9 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.utils.ResUtil;
-import com.fongmi.android.gongjin.utils.Util;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.utils.Util;
 
 public class CustomKeyDownLive extends GestureDetector.SimpleOnGestureListener {
 

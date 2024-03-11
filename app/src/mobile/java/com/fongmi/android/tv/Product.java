@@ -1,9 +1,9 @@
-package com.fongmi.android.gongjin;
+package com.fongmi.android.tv_gongjin;
 
 import android.content.Context;
 
-import com.fongmi.android.gongjin.bean.Style;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.bean.Style;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 public class Product {
 

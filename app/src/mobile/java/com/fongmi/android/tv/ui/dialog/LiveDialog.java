@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.dialog;
+package com.fongmi.android.tv_gongjin.ui.dialog;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.fongmi.android.gongjin.api.config.LiveConfig;
-import com.fongmi.android.gongjin.bean.Live;
-import com.fongmi.android.gongjin.databinding.DialogLiveBinding;
-import com.fongmi.android.gongjin.impl.LiveCallback;
-import com.fongmi.android.gongjin.ui.adapter.LiveAdapter;
-import com.fongmi.android.gongjin.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.tv_gongjin.api.config.LiveConfig;
+import com.fongmi.android.tv_gongjin.bean.Live;
+import com.fongmi.android.tv_gongjin.databinding.DialogLiveBinding;
+import com.fongmi.android.tv_gongjin.impl.LiveCallback;
+import com.fongmi.android.tv_gongjin.ui.adapter.LiveAdapter;
+import com.fongmi.android.tv_gongjin.ui.custom.SpaceItemDecoration;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class LiveDialog implements LiveAdapter.OnClickListener {

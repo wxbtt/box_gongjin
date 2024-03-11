@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.dialog;
+package com.fongmi.android.tv_gongjin.ui.dialog;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -11,19 +11,19 @@ import android.view.inputmethod.EditorInfo;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.api.config.LiveConfig;
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.api.config.WallConfig;
-import com.fongmi.android.gongjin.bean.Config;
-import com.fongmi.android.gongjin.databinding.DialogConfigBinding;
-import com.fongmi.android.gongjin.event.ServerEvent;
-import com.fongmi.android.gongjin.impl.ConfigCallback;
-import com.fongmi.android.gongjin.server.Server;
-import com.fongmi.android.gongjin.ui.custom.CustomTextListener;
-import com.fongmi.android.gongjin.utils.QRCode;
-import com.fongmi.android.gongjin.utils.ResUtil;
-import com.fongmi.android.gongjin.utils.UrlUtil;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.api.config.LiveConfig;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.api.config.WallConfig;
+import com.fongmi.android.tv_gongjin.bean.Config;
+import com.fongmi.android.tv_gongjin.databinding.DialogConfigBinding;
+import com.fongmi.android.tv_gongjin.event.ServerEvent;
+import com.fongmi.android.tv_gongjin.impl.ConfigCallback;
+import com.fongmi.android.tv_gongjin.server.Server;
+import com.fongmi.android.tv_gongjin.ui.custom.CustomTextListener;
+import com.fongmi.android.tv_gongjin.utils.QRCode;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.utils.UrlUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.permissionx.guolindev.PermissionX;
 

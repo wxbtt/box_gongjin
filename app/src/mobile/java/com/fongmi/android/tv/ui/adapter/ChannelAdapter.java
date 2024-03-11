@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.adapter;
+package com.fongmi.android.tv_gongjin.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.gongjin.bean.Channel;
-import com.fongmi.android.gongjin.databinding.AdapterChannelBinding;
+import com.fongmi.android.tv_gongjin.bean.Channel;
+import com.fongmi.android.tv_gongjin.databinding.AdapterChannelBinding;
 
 import java.util.ArrayList;
 import java.util.List;

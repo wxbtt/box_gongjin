@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.fragment;
+package com.fongmi.android.tv_gongjin.ui.fragment;
 
 import android.content.Intent;
 import android.provider.Settings;
@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.databinding.FragmentSettingPlayerBinding;
-import com.fongmi.android.gongjin.impl.BufferCallback;
-import com.fongmi.android.gongjin.impl.SubtitleCallback;
-import com.fongmi.android.gongjin.impl.UaCallback;
-import com.fongmi.android.gongjin.player.ExoUtil;
-import com.fongmi.android.gongjin.player.Players;
-import com.fongmi.android.gongjin.ui.base.BaseFragment;
-import com.fongmi.android.gongjin.ui.dialog.BufferDialog;
-import com.fongmi.android.gongjin.ui.dialog.SubtitleDialog;
-import com.fongmi.android.gongjin.ui.dialog.UaDialog;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.databinding.FragmentSettingPlayerBinding;
+import com.fongmi.android.tv_gongjin.impl.BufferCallback;
+import com.fongmi.android.tv_gongjin.impl.SubtitleCallback;
+import com.fongmi.android.tv_gongjin.impl.UaCallback;
+import com.fongmi.android.tv_gongjin.player.ExoUtil;
+import com.fongmi.android.tv_gongjin.player.Players;
+import com.fongmi.android.tv_gongjin.ui.base.BaseFragment;
+import com.fongmi.android.tv_gongjin.ui.dialog.BufferDialog;
+import com.fongmi.android.tv_gongjin.ui.dialog.SubtitleDialog;
+import com.fongmi.android.tv_gongjin.ui.dialog.UaDialog;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class SettingPlayerFragment extends BaseFragment implements UaCallback, BufferCallback, SubtitleCallback {

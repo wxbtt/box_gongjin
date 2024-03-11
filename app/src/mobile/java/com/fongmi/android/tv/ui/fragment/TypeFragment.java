@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.fragment;
+package com.fongmi.android.tv_gongjin.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.Product;
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.bean.Page;
-import com.fongmi.android.gongjin.bean.Result;
-import com.fongmi.android.gongjin.bean.Site;
-import com.fongmi.android.gongjin.bean.Style;
-import com.fongmi.android.gongjin.bean.Value;
-import com.fongmi.android.gongjin.bean.Vod;
-import com.fongmi.android.gongjin.databinding.FragmentTypeBinding;
-import com.fongmi.android.gongjin.model.SiteViewModel;
-import com.fongmi.android.gongjin.ui.activity.CollectActivity;
-import com.fongmi.android.gongjin.ui.activity.DetailActivity;
-import com.fongmi.android.gongjin.ui.activity.VideoActivity;
-import com.fongmi.android.gongjin.ui.adapter.VodAdapter;
-import com.fongmi.android.gongjin.ui.base.BaseFragment;
-import com.fongmi.android.gongjin.ui.custom.CustomScroller;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.Product;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.bean.Page;
+import com.fongmi.android.tv_gongjin.bean.Result;
+import com.fongmi.android.tv_gongjin.bean.Site;
+import com.fongmi.android.tv_gongjin.bean.Style;
+import com.fongmi.android.tv_gongjin.bean.Value;
+import com.fongmi.android.tv_gongjin.bean.Vod;
+import com.fongmi.android.tv_gongjin.databinding.FragmentTypeBinding;
+import com.fongmi.android.tv_gongjin.model.SiteViewModel;
+import com.fongmi.android.tv_gongjin.ui.activity.CollectActivity;
+import com.fongmi.android.tv_gongjin.ui.activity.DetailActivity;
+import com.fongmi.android.tv_gongjin.ui.activity.VideoActivity;
+import com.fongmi.android.tv_gongjin.ui.adapter.VodAdapter;
+import com.fongmi.android.tv_gongjin.ui.base.BaseFragment;
+import com.fongmi.android.tv_gongjin.ui.custom.CustomScroller;
 
 import java.io.Serializable;
 import java.util.ArrayList;

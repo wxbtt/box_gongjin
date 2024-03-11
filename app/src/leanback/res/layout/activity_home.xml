@@ -22,7 +22,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.fongmi.android.gongjin.ui.custom.CustomTitleView
+            <com.fongmi.android.tv_gongjin.ui.custom.CustomTitleView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:visibility="gone">
         </LinearLayout>
 
-        <com.fongmi.android.gongjin.ui.custom.CustomHorizontalGridView
+        <com.fongmi.android.tv_gongjin.ui.custom.CustomHorizontalGridView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             app:focusOutEnd="true"
             app:focusOutFront="true" />
 
-        <com.fongmi.android.gongjin.ui.custom.CustomViewPager
+        <com.fongmi.android.tv_gongjin.ui.custom.CustomViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

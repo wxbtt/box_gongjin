@@ -1,8 +1,8 @@
-package com.fongmi.android.gongjin.cast;
+package com.fongmi.android.tv_gongjin.cast;
 
 import android.net.Uri;
 
-import com.fongmi.android.gongjin.server.Server;
+import com.fongmi.android.tv_gongjin.server.Server;
 import com.github.catvod.utils.Path;
 import com.github.catvod.utils.Util;
 

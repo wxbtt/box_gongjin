@@ -1,11 +1,10 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.annotation.SuppressLint;
 
-import com.fongmi.android.gongjin.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.databinding.ActivitySearchBinding;
-import com.fongmi.android.gongjin.ui.adapter.KeyboardAdapter;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.databinding.ActivitySearchBinding;
+import com.fongmi.android.tv_gongjin.ui.adapter.KeyboardAdapter;
 
 public class CustomKeyboard implements KeyboardAdapter.OnClickListener {
 

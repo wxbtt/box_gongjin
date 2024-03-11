@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -10,14 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.fongmi.android.gongjin.App;
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.api.config.VodConfig;
-import com.fongmi.android.gongjin.bean.Site;
-import com.fongmi.android.gongjin.impl.SiteCallback;
-import com.fongmi.android.gongjin.utils.KeyUtil;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.App;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.api.config.VodConfig;
+import com.fongmi.android.tv_gongjin.bean.Site;
+import com.fongmi.android.tv_gongjin.impl.SiteCallback;
+import com.fongmi.android.tv_gongjin.utils.KeyUtil;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 import java.util.List;
 

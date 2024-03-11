@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.dialog;
+package com.fongmi.android.tv_gongjin.ui.dialog;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,10 +7,10 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.fongmi.android.gongjin.databinding.DialogButtonsBinding;
-import com.fongmi.android.gongjin.ui.adapter.ButtonsAdapter;
-import com.fongmi.android.gongjin.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.databinding.DialogButtonsBinding;
+import com.fongmi.android.tv_gongjin.ui.adapter.ButtonsAdapter;
+import com.fongmi.android.tv_gongjin.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ButtonsDialog {

@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.leanback.widget.HorizontalGridView;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 public class CustomHorizontalGridView extends HorizontalGridView {
 

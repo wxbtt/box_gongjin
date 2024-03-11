@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.base;
+package com.fongmi.android.tv_gongjin.ui.base;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -14,12 +14,12 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.Setting;
-import com.fongmi.android.gongjin.api.config.WallConfig;
-import com.fongmi.android.gongjin.event.RefreshEvent;
-import com.fongmi.android.gongjin.utils.FileUtil;
-import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.Setting;
+import com.fongmi.android.tv_gongjin.api.config.WallConfig;
+import com.fongmi.android.tv_gongjin.event.RefreshEvent;
+import com.fongmi.android.tv_gongjin.utils.FileUtil;
+import com.fongmi.android.tv_gongjin.utils.ResUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

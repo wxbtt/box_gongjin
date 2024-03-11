@@ -1,8 +1,8 @@
-package com.fongmi.android.gongjin.utils;
+package com.fongmi.android.tv_gongjin.utils;
 
 import android.os.CountDownTimer;
 
-import com.fongmi.android.gongjin.event.ActionEvent;
+import com.fongmi.android.tv_gongjin.event.ActionEvent;
 
 import java.util.concurrent.TimeUnit;
 

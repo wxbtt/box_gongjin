@@ -1,12 +1,12 @@
-package com.fongmi.android.gongjin.ui.holder;
+package com.fongmi.android.tv_gongjin.ui.holder;
 
 import androidx.annotation.NonNull;
 
-import com.fongmi.android.gongjin.Product;
-import com.fongmi.android.gongjin.bean.Episode;
-import com.fongmi.android.gongjin.databinding.AdapterEpisodeHoriBinding;
-import com.fongmi.android.gongjin.ui.adapter.EpisodeAdapter;
-import com.fongmi.android.gongjin.ui.base.BaseEpisodeHolder;
+import com.fongmi.android.tv_gongjin.Product;
+import com.fongmi.android.tv_gongjin.bean.Episode;
+import com.fongmi.android.tv_gongjin.databinding.AdapterEpisodeHoriBinding;
+import com.fongmi.android.tv_gongjin.ui.adapter.EpisodeAdapter;
+import com.fongmi.android.tv_gongjin.ui.base.BaseEpisodeHolder;
 
 public class EpisodeHoriHolder extends BaseEpisodeHolder {
 

@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.activity;
+package com.fongmi.android.tv_gongjin.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.gongjin.R;
-import com.fongmi.android.gongjin.bean.Class;
-import com.fongmi.android.gongjin.bean.Result;
-import com.fongmi.android.gongjin.databinding.ActivityFolderBinding;
-import com.fongmi.android.gongjin.ui.base.BaseActivity;
-import com.fongmi.android.gongjin.ui.fragment.TypeFragment;
+import com.fongmi.android.tv_gongjin.R;
+import com.fongmi.android.tv_gongjin.bean.Class;
+import com.fongmi.android.tv_gongjin.bean.Result;
+import com.fongmi.android.tv_gongjin.databinding.ActivityFolderBinding;
+import com.fongmi.android.tv_gongjin.ui.base.BaseActivity;
+import com.fongmi.android.tv_gongjin.ui.fragment.TypeFragment;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.fongmi.android.gongjin.ui.custom;
+package com.fongmi.android.tv_gongjin.ui.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
