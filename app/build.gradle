@@ -7,7 +7,7 @@ android {
     flavorDimensions = ["mode", "api", "abi"]
 
     defaultConfig {
-        applicationId "com.fongmi.android.tv"
+        applicationId "com.fongmi.android.gongjin"
         minSdk 21
         targetSdk 28
         versionCode 230

@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.custom;
+package com.fongmi.android.gongjin.ui.custom;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.fongmi.android.tv.App;
-import com.fongmi.android.tv.utils.KeyUtil;
+import com.fongmi.android.gongjin.App;
+import com.fongmi.android.gongjin.utils.KeyUtil;
 
 public class CustomTypeView extends AppCompatTextView {
 

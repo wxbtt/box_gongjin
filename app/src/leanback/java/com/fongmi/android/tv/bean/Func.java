@@ -1,11 +1,11 @@
-package com.fongmi.android.tv.bean;
+package com.fongmi.android.gongjin.bean;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.View;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.utils.ResUtil;
 
 public class Func {
 

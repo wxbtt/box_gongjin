@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.content.DialogInterface;
 import android.text.TextUtils;
@@ -9,16 +9,16 @@ import android.view.inputmethod.EditorInfo;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.api.config.LiveConfig;
-import com.fongmi.android.tv.api.config.VodConfig;
-import com.fongmi.android.tv.api.config.WallConfig;
-import com.fongmi.android.tv.bean.Config;
-import com.fongmi.android.tv.databinding.DialogConfigBinding;
-import com.fongmi.android.tv.impl.ConfigCallback;
-import com.fongmi.android.tv.ui.custom.CustomTextListener;
-import com.fongmi.android.tv.utils.FileChooser;
-import com.fongmi.android.tv.utils.UrlUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.api.config.LiveConfig;
+import com.fongmi.android.gongjin.api.config.VodConfig;
+import com.fongmi.android.gongjin.api.config.WallConfig;
+import com.fongmi.android.gongjin.bean.Config;
+import com.fongmi.android.gongjin.databinding.DialogConfigBinding;
+import com.fongmi.android.gongjin.impl.ConfigCallback;
+import com.fongmi.android.gongjin.ui.custom.CustomTextListener;
+import com.fongmi.android.gongjin.utils.FileChooser;
+import com.fongmi.android.gongjin.utils.UrlUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class ConfigDialog {

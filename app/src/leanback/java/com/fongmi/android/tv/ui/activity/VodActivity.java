@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.activity;
+package com.fongmi.android.gongjin.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,18 +18,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
 
-import com.fongmi.android.tv.App;
-import com.fongmi.android.tv.api.config.VodConfig;
-import com.fongmi.android.tv.bean.Class;
-import com.fongmi.android.tv.bean.Filter;
-import com.fongmi.android.tv.bean.Result;
-import com.fongmi.android.tv.bean.Site;
-import com.fongmi.android.tv.databinding.ActivityVodBinding;
-import com.fongmi.android.tv.ui.base.BaseActivity;
-import com.fongmi.android.tv.ui.fragment.VodFragment;
-import com.fongmi.android.tv.ui.presenter.TypePresenter;
-import com.fongmi.android.tv.utils.KeyUtil;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.App;
+import com.fongmi.android.gongjin.api.config.VodConfig;
+import com.fongmi.android.gongjin.bean.Class;
+import com.fongmi.android.gongjin.bean.Filter;
+import com.fongmi.android.gongjin.bean.Result;
+import com.fongmi.android.gongjin.bean.Site;
+import com.fongmi.android.gongjin.databinding.ActivityVodBinding;
+import com.fongmi.android.gongjin.ui.base.BaseActivity;
+import com.fongmi.android.gongjin.ui.fragment.VodFragment;
+import com.fongmi.android.gongjin.ui.presenter.TypePresenter;
+import com.fongmi.android.gongjin.utils.KeyUtil;
+import com.fongmi.android.gongjin.utils.ResUtil;
 import com.github.catvod.utils.Prefers;
 import com.github.catvod.utils.Trans;
 

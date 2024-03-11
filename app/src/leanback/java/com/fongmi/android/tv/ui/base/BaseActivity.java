@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.base;
+package com.fongmi.android.gongjin.ui.base;
 
 import android.app.Activity;
 import android.content.res.Configuration;
@@ -14,13 +14,13 @@ import androidx.leanback.widget.ArrayObjectAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.Setting;
-import com.fongmi.android.tv.api.config.WallConfig;
-import com.fongmi.android.tv.event.RefreshEvent;
-import com.fongmi.android.tv.utils.FileUtil;
-import com.fongmi.android.tv.utils.ResUtil;
-import com.fongmi.android.tv.utils.Util;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.Setting;
+import com.fongmi.android.gongjin.api.config.WallConfig;
+import com.fongmi.android.gongjin.event.RefreshEvent;
+import com.fongmi.android.gongjin.utils.FileUtil;
+import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.gongjin.utils.Util;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

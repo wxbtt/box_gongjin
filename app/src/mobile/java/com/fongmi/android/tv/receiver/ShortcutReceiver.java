@@ -1,11 +1,11 @@
-package com.fongmi.android.tv.receiver;
+package com.fongmi.android.gongjin.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.utils.Notify;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.utils.Notify;
 
 public class ShortcutReceiver extends BroadcastReceiver {
 

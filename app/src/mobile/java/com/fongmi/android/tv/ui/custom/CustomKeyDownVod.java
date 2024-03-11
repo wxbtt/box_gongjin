@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.custom;
+package com.fongmi.android.gongjin.ui.custom;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,8 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 
-import com.fongmi.android.tv.utils.ResUtil;
-import com.fongmi.android.tv.utils.Util;
+import com.fongmi.android.gongjin.utils.ResUtil;
+import com.fongmi.android.gongjin.utils.Util;
 
 public class CustomKeyDownVod extends GestureDetector.SimpleOnGestureListener {
 

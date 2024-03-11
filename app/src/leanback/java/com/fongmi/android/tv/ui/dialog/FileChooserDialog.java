@@ -1,9 +1,10 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.app.Activity;
 
-import com.fongmi.android.tv.bean.Sub;
-import com.fongmi.android.tv.player.Players;
+import com.fongmi.android.gongjin.bean.Sub;
+import com.fongmi.android.gongjin.player.Players;
+import com.fongmi.android.gongjin.ui.dialog.TrackDialog;
 import com.github.catvod.utils.Path;
 import com.obsez.android.lib.filechooser.ChooserDialog;
 

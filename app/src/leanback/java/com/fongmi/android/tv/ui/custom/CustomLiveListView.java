@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.custom;
+package com.fongmi.android.gongjin.ui.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.leanback.widget.VerticalGridView;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.utils.KeyUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.utils.KeyUtil;
 
 public class CustomLiveListView extends VerticalGridView {
 

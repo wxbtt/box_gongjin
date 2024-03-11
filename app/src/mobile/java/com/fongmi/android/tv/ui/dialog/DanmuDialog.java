@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.Setting;
-import com.fongmi.android.tv.databinding.DialogDanmuBinding;
-import com.fongmi.android.tv.ui.activity.VideoActivity;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.Setting;
+import com.fongmi.android.gongjin.databinding.DialogDanmuBinding;
+import com.fongmi.android.gongjin.ui.activity.VideoActivity;
+import com.fongmi.android.gongjin.utils.ResUtil;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.slider.Slider;
 

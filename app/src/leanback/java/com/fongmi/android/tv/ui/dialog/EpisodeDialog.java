@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -19,14 +19,15 @@ import androidx.leanback.widget.OnChildViewHolderSelectedListener;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv.Setting;
-import com.fongmi.android.tv.bean.Episode;
-import com.fongmi.android.tv.databinding.DialogEpisodeBinding;
-import com.fongmi.android.tv.ui.activity.VideoActivity;
-import com.fongmi.android.tv.ui.presenter.ArrayPresenter;
-import com.fongmi.android.tv.ui.presenter.EpisodePresenter;
-import com.fongmi.android.tv.utils.KeyUtil;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.Setting;
+import com.fongmi.android.gongjin.bean.Episode;
+import com.fongmi.android.gongjin.ui.dialog.BaseDialog;
+import com.fongmi.android.gongjin.databinding.DialogEpisodeBinding;
+import com.fongmi.android.gongjin.ui.activity.VideoActivity;
+import com.fongmi.android.gongjin.ui.presenter.ArrayPresenter;
+import com.fongmi.android.gongjin.ui.presenter.EpisodePresenter;
+import com.fongmi.android.gongjin.utils.KeyUtil;
+import com.fongmi.android.gongjin.utils.ResUtil;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 

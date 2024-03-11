@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -8,10 +8,10 @@ import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.databinding.DialogInfoBinding;
-import com.fongmi.android.tv.utils.Notify;
-import com.fongmi.android.tv.utils.Util;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.databinding.DialogInfoBinding;
+import com.fongmi.android.gongjin.utils.Notify;
+import com.fongmi.android.gongjin.utils.Util;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Map;

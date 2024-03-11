@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.activity;
+package com.fongmi.android.gongjin.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,25 +12,25 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.api.config.VodConfig;
-import com.fongmi.android.tv.bean.Episode;
-import com.fongmi.android.tv.bean.Flag;
-import com.fongmi.android.tv.bean.History;
-import com.fongmi.android.tv.bean.Result;
-import com.fongmi.android.tv.bean.Site;
-import com.fongmi.android.tv.bean.Vod;
-import com.fongmi.android.tv.databinding.ActivityDetailBinding;
-import com.fongmi.android.tv.db.AppDatabase;
-import com.fongmi.android.tv.event.ErrorEvent;
-import com.fongmi.android.tv.model.SiteViewModel;
-import com.fongmi.android.tv.ui.adapter.EpisodeAdapter;
-import com.fongmi.android.tv.ui.adapter.FlagAdapter;
-import com.fongmi.android.tv.ui.base.BaseActivity;
-import com.fongmi.android.tv.ui.base.ViewType;
-import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.tv.utils.ImgUtil;
-import com.fongmi.android.tv.utils.Notify;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.api.config.VodConfig;
+import com.fongmi.android.gongjin.bean.Episode;
+import com.fongmi.android.gongjin.bean.Flag;
+import com.fongmi.android.gongjin.bean.History;
+import com.fongmi.android.gongjin.bean.Result;
+import com.fongmi.android.gongjin.bean.Site;
+import com.fongmi.android.gongjin.bean.Vod;
+import com.fongmi.android.gongjin.databinding.ActivityDetailBinding;
+import com.fongmi.android.gongjin.db.AppDatabase;
+import com.fongmi.android.gongjin.event.ErrorEvent;
+import com.fongmi.android.gongjin.model.SiteViewModel;
+import com.fongmi.android.gongjin.ui.adapter.EpisodeAdapter;
+import com.fongmi.android.gongjin.ui.adapter.FlagAdapter;
+import com.fongmi.android.gongjin.ui.base.BaseActivity;
+import com.fongmi.android.gongjin.ui.base.ViewType;
+import com.fongmi.android.gongjin.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.gongjin.utils.ImgUtil;
+import com.fongmi.android.gongjin.utils.Notify;
 
 import java.util.List;
 

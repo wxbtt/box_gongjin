@@ -1,21 +1,21 @@
-package com.fongmi.android.tv.ui.presenter;
+package com.fongmi.android.gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.tv.Product;
-import com.fongmi.android.tv.bean.Style;
-import com.fongmi.android.tv.bean.Vod;
-import com.fongmi.android.tv.databinding.AdapterVodListBinding;
-import com.fongmi.android.tv.databinding.AdapterVodOvalBinding;
-import com.fongmi.android.tv.databinding.AdapterVodRectBinding;
-import com.fongmi.android.tv.ui.base.BaseVodHolder;
-import com.fongmi.android.tv.ui.base.ViewType;
-import com.fongmi.android.tv.ui.holder.VodListHolder;
-import com.fongmi.android.tv.ui.holder.VodOvalHolder;
-import com.fongmi.android.tv.ui.holder.VodRectHolder;
+import com.fongmi.android.gongjin.Product;
+import com.fongmi.android.gongjin.bean.Style;
+import com.fongmi.android.gongjin.bean.Vod;
+import com.fongmi.android.gongjin.databinding.AdapterVodListBinding;
+import com.fongmi.android.gongjin.databinding.AdapterVodOvalBinding;
+import com.fongmi.android.gongjin.databinding.AdapterVodRectBinding;
+import com.fongmi.android.gongjin.ui.base.BaseVodHolder;
+import com.fongmi.android.gongjin.ui.base.ViewType;
+import com.fongmi.android.gongjin.ui.holder.VodListHolder;
+import com.fongmi.android.gongjin.ui.holder.VodOvalHolder;
+import com.fongmi.android.gongjin.ui.holder.VodRectHolder;
 
 public class VodPresenter extends Presenter {
 

@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.custom;
+package com.fongmi.android.gongjin.ui.custom;
 
 import android.app.Activity;
 import android.view.GestureDetector;
@@ -7,9 +7,9 @@ import android.view.MotionEvent;
 
 import androidx.annotation.NonNull;
 
-import com.fongmi.android.tv.App;
-import com.fongmi.android.tv.Constant;
-import com.fongmi.android.tv.utils.KeyUtil;
+import com.fongmi.android.gongjin.App;
+import com.fongmi.android.gongjin.Constant;
+import com.fongmi.android.gongjin.utils.KeyUtil;
 
 public class CustomKeyDownCast extends GestureDetector.SimpleOnGestureListener {
 

@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.activity;
+package com.fongmi.android.gongjin.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,17 +6,17 @@ import android.view.View;
 
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.Setting;
-import com.fongmi.android.tv.databinding.ActivitySettingDanmuBinding;
-import com.fongmi.android.tv.impl.DanmuAlphaCallback;
-import com.fongmi.android.tv.impl.DanmuLineCallback;
-import com.fongmi.android.tv.impl.DanmuSizeCallback;
-import com.fongmi.android.tv.ui.base.BaseActivity;
-import com.fongmi.android.tv.ui.dialog.DanmuAlphaDialog;
-import com.fongmi.android.tv.ui.dialog.DanmuLineDialog;
-import com.fongmi.android.tv.ui.dialog.DanmuSizeDialog;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.Setting;
+import com.fongmi.android.gongjin.databinding.ActivitySettingDanmuBinding;
+import com.fongmi.android.gongjin.impl.DanmuAlphaCallback;
+import com.fongmi.android.gongjin.impl.DanmuLineCallback;
+import com.fongmi.android.gongjin.impl.DanmuSizeCallback;
+import com.fongmi.android.gongjin.ui.base.BaseActivity;
+import com.fongmi.android.gongjin.ui.dialog.DanmuAlphaDialog;
+import com.fongmi.android.gongjin.ui.dialog.DanmuLineDialog;
+import com.fongmi.android.gongjin.ui.dialog.DanmuSizeDialog;
+import com.fongmi.android.gongjin.utils.ResUtil;
 
 public class SettingDanmuActivity extends BaseActivity implements DanmuLineCallback, DanmuSizeCallback, DanmuAlphaCallback {
 

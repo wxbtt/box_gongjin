@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.presenter;
+package com.fongmi.android.gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.tv.databinding.AdapterHeaderBinding;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.databinding.AdapterHeaderBinding;
+import com.fongmi.android.gongjin.utils.ResUtil;
 
 public class HeaderPresenter extends Presenter {
 

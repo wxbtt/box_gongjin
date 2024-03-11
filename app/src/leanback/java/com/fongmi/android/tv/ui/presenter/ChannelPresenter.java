@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.presenter;
+package com.fongmi.android.gongjin.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.tv.bean.Channel;
-import com.fongmi.android.tv.databinding.AdapterChannelBinding;
+import com.fongmi.android.gongjin.bean.Channel;
+import com.fongmi.android.gongjin.databinding.AdapterChannelBinding;
 
 public class ChannelPresenter extends Presenter {
 

@@ -1,4 +1,4 @@
-package com.fongmi.android.tv.ui.dialog;
+package com.fongmi.android.gongjin.ui.dialog;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -7,17 +7,17 @@ import android.view.WindowManager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import com.fongmi.android.tv.R;
-import com.fongmi.android.tv.databinding.DialogMenuBinding;
-import com.fongmi.android.tv.ui.activity.HistoryActivity;
-import com.fongmi.android.tv.ui.activity.HomeActivity;
-import com.fongmi.android.tv.ui.activity.KeepActivity;
-import com.fongmi.android.tv.ui.activity.PushActivity;
-import com.fongmi.android.tv.ui.activity.SearchActivity;
-import com.fongmi.android.tv.ui.activity.SettingActivity;
-import com.fongmi.android.tv.ui.adapter.MenuAdapter;
-import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.gongjin.R;
+import com.fongmi.android.gongjin.databinding.DialogMenuBinding;
+import com.fongmi.android.gongjin.ui.activity.HistoryActivity;
+import com.fongmi.android.gongjin.ui.activity.HomeActivity;
+import com.fongmi.android.gongjin.ui.activity.KeepActivity;
+import com.fongmi.android.gongjin.ui.activity.PushActivity;
+import com.fongmi.android.gongjin.ui.activity.SearchActivity;
+import com.fongmi.android.gongjin.ui.activity.SettingActivity;
+import com.fongmi.android.gongjin.ui.adapter.MenuAdapter;
+import com.fongmi.android.gongjin.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.gongjin.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.ArrayList;
