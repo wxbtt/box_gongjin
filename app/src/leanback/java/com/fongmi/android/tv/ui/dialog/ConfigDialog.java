@@ -162,8 +162,9 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
         if (edit) Config.find(url, type).url(text).update();
 //        if (text.isEmpty()) Config.delete(url, type);
         if (text.isEmpty()) {
-            url = "assets://js/main.json";
-            Config.find(url, 1).name("插兜的时光机: 关注「码上放生」").update();
+//            url = "assets://js/main.json";
+            url = "https://atomgit.com/lintech/tms/raw/master/source/stable/main.json";
+            Config.find(url, 1).name("关注「插兜的干货仓库」").update();
         }
         if (name.isEmpty()) callback.setConfig(Config.find(text, type));
         else callback.setConfig(Config.find(text, name, type));

@@ -131,8 +131,9 @@ public class ConfigDialog {
         if (edit) Config.find(ori, type).url(url).name(name).update();
 //        if (url.isEmpty()) Config.delete(ori, type);
         if (url.isEmpty()) {
-            url = "assets://js/main.json";
-            Config.find(url, 1).name("插兜的时光机: 关注「码上放生」").update();
+//            url = "assets://js/main.json";
+            url = "https://atomgit.com/lintech/tms/raw/master/source/stable/main.json";
+            Config.find(url, 1).name("关注「插兜的干货仓库」").update();
         }
         callback.setConfig(Config.find(url, type));
         dialog.dismiss();

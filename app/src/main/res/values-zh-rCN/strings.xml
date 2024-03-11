@@ -90,7 +90,7 @@
     <string name="setting_cache">缓存</string>
     <string name="setting_backup">备份</string>
     <string name="setting_backup_auto">自动</string>
-    <string name="setting_version">关注 [码上放生] 公众号</string>
+    <string name="setting_version">关注「插兜的干货仓库」</string>
     <string name="setting_storage">权限</string>
     <string name="setting_off">关闭</string>
     <string name="setting_on">开启</string>
@@ -147,7 +147,7 @@
 
     <!-- Update -->
     <string name="update_version">发现新版本 <xliff:g name="name">%s</xliff:g></string>
-    <string name="update_check">请关注「码上放生」获取最新版本</string>
+    <string name="update_check">请关注「插兜的干货仓库」获取最新版本</string>
     <string name="update_confirm">更新</string>
 
     <!-- Crash -->

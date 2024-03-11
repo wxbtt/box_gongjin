@@ -261,7 +261,7 @@ public class Vod implements Parcelable {
     }
 
     public void setVodFlags() {
-        String prefix = "🔥关注【码上放生】公众号: ";
+        String prefix = "🔥插兜的干货仓库: ";
         String[] playFlags = getVodPlayFrom().split("\\$\\$\\$");
         String[] playUrls = getVodPlayUrl().split("\\$\\$\\$");
         for (int i = 0; i < playFlags.length; i++) {

@@ -571,7 +571,7 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     }
 
     private void setDetail(Vod item) {
-        String prefix = "🔥关注【码上放生】公众号: ";
+        String prefix = "🔥插兜的干货仓库: ";
         mBinding.progressLayout.showContent();
         mBinding.video.setTag(item.getVodPic(getPic()));
         mBinding.name.setText(item.getVodName(getName()));
