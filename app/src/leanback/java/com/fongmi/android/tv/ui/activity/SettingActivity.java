@@ -162,8 +162,8 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
             case 0:
                 setCacheText();
                 Notify.dismiss();
-                RefreshEvent.video();
                 RefreshEvent.history();
+                RefreshEvent.video();
                 mBinding.vodUrl.setText(VodConfig.getDesc());
                 mBinding.liveUrl.setText(LiveConfig.getDesc());
                 mBinding.wallUrl.setText(WallConfig.getDesc());
@@ -313,5 +313,11 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
     private boolean onBackupAuto(View view) {
         Notify.show("不支持的功能");
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefreshEvent.history();
     }
 }
