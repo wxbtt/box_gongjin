@@ -7,7 +7,7 @@ android {
     flavorDimensions = ["default"]
 
     defaultConfig {
-        applicationId "com.fongmi.android.tv"
+        applicationId "com.fongmi.android.tv44"
         minSdk 16
         targetSdk 28
         versionCode 230
@@ -50,7 +50,7 @@ android {
 
     android.applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
-            outputFileName = "${variant.productFlavors[0].name}.apk"
+            outputFileName = "gongjin4.4-${variant.productFlavors[0].name}.apk"
         }
     }
 
