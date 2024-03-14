@@ -61,7 +61,7 @@
 
         <provider
             android:name="com.fongmi.quickjs.Provider"
-            android:authorities="com.fongmi.quickjs.provider"
+            android:authorities="com.fongmi.quickjs_gongjin_44.provider"
             android:exported="false" />
 
         <activity

@@ -7,11 +7,11 @@ android {
     flavorDimensions = ["default"]
 
     defaultConfig {
-        applicationId "com.fongmi.android.tv44"
+        applicationId "com.fongmi.android.tv_gongjin_44"
         minSdk 16
         targetSdk 28
-        versionCode 230
-        versionName "0312"
+        versionCode 231
+        versionName "2.3.1"
         multiDexEnabled true
         ndk { abiFilters "armeabi-v7a" }
         javaCompileOptions {
