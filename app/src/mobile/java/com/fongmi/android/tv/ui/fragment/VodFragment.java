@@ -3,6 +3,7 @@ package com.fongmi.android.tv_gongjin.ui.fragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,40 +17,39 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
 
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.api.config.VodConfig;
-import com.fongmi.android.tv_gongjin.bean.Class;
-import com.fongmi.android.tv_gongjin.bean.Config;
-import com.fongmi.android.tv_gongjin.bean.Hot;
-import com.fongmi.android.tv_gongjin.bean.Result;
-import com.fongmi.android.tv_gongjin.bean.Site;
-import com.fongmi.android.tv_gongjin.bean.Value;
-import com.fongmi.android.tv_gongjin.databinding.FragmentVodBinding;
-import com.fongmi.android.tv_gongjin.event.CastEvent;
-import com.fongmi.android.tv_gongjin.event.RefreshEvent;
-import com.fongmi.android.tv_gongjin.impl.Callback;
-import com.fongmi.android.tv_gongjin.impl.ConfigCallback;
-import com.fongmi.android.tv_gongjin.impl.FilterCallback;
-import com.fongmi.android.tv_gongjin.impl.SiteCallback;
-import com.fongmi.android.tv_gongjin.model.SiteViewModel;
-import com.fongmi.android.tv_gongjin.ui.activity.CollectActivity;
-import com.fongmi.android.tv_gongjin.ui.activity.HistoryActivity;
-import com.fongmi.android.tv_gongjin.ui.activity.KeepActivity;
-import com.fongmi.android.tv_gongjin.ui.activity.MainActivity;
-import com.fongmi.android.tv_gongjin.ui.activity.VideoActivity;
-import com.fongmi.android.tv_gongjin.ui.adapter.TypeAdapter;
-import com.fongmi.android.tv_gongjin.ui.base.BaseFragment;
-import com.fongmi.android.tv_gongjin.ui.dialog.FilterDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.HistoryDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.LinkDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.ReceiveDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.SiteDialog;
-import com.fongmi.android.tv_gongjin.utils.FileChooser;
-import com.fongmi.android.tv_gongjin.utils.FileUtil;
-import com.fongmi.android.tv_gongjin.utils.Notify;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.api.config.VodConfig;
+import com.fongmi.android.tv.bean.Class;
+import com.fongmi.android.tv.bean.Config;
+import com.fongmi.android.tv.bean.Hot;
+import com.fongmi.android.tv.bean.Result;
+import com.fongmi.android.tv.bean.Site;
+import com.fongmi.android.tv.bean.Value;
+import com.fongmi.android.tv.databinding.FragmentVodBinding;
+import com.fongmi.android.tv.event.CastEvent;
+import com.fongmi.android.tv.event.RefreshEvent;
+import com.fongmi.android.tv.impl.Callback;
+import com.fongmi.android.tv.impl.ConfigCallback;
+import com.fongmi.android.tv.impl.FilterCallback;
+import com.fongmi.android.tv.impl.SiteCallback;
+import com.fongmi.android.tv.model.SiteViewModel;
+import com.fongmi.android.tv.ui.activity.CollectActivity;
+import com.fongmi.android.tv.ui.activity.HistoryActivity;
+import com.fongmi.android.tv.ui.activity.KeepActivity;
+import com.fongmi.android.tv.ui.activity.VideoActivity;
+import com.fongmi.android.tv.ui.adapter.TypeAdapter;
+import com.fongmi.android.tv.ui.base.BaseFragment;
+import com.fongmi.android.tv.ui.dialog.FilterDialog;
+import com.fongmi.android.tv.ui.dialog.HistoryDialog;
+import com.fongmi.android.tv.ui.dialog.LinkDialog;
+import com.fongmi.android.tv.ui.dialog.ReceiveDialog;
+import com.fongmi.android.tv.ui.dialog.SiteDialog;
+import com.fongmi.android.tv.utils.FileChooser;
+import com.fongmi.android.tv.utils.FileUtil;
+import com.fongmi.android.tv.utils.Notify;
+import com.fongmi.android.tv.utils.ResUtil;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Trans;
 import com.google.common.net.HttpHeaders;
@@ -217,9 +217,12 @@ public class VodFragment extends BaseFragment implements SiteCallback, FilterCal
     }
 
     private boolean onRefresh(View view) {
-        FileUtil.clearCache(null);
-        if (getActivity() instanceof MainActivity) ((MainActivity) getActivity()).initConfig();
-        App.post(() -> Notify.show(ResUtil.getString(R.string.config_refreshed)), 2000);
+        FileUtil.clearCache(new Callback() {
+            @Override
+            public void success() {
+                setConfig(VodConfig.get().getConfig().json("").save(), ResUtil.getString(R.string.config_refreshed));
+            }
+        });
         return true;
     }
 
@@ -280,27 +283,32 @@ public class VodFragment extends BaseFragment implements SiteCallback, FilterCal
 
     @Override
     public void setConfig(Config config) {
+        setConfig(config, "");
+    }
+
+    private void setConfig(Config config, String success) {
         if (config.getUrl().startsWith("file") && !PermissionX.isGranted(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            PermissionX.init(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).request((allGranted, grantedList, deniedList) -> load(config));
+            PermissionX.init(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).request((allGranted, grantedList, deniedList) -> load(config, success));
         } else {
-            load(config);
+            load(config, success);
         }
     }
 
-    private void load(Config config) {
+    private void load(Config config, String success) {
         switch (config.getType()) {
             case 0:
                 Notify.progress(getActivity());
-                VodConfig.load(config, getCallback());
+                VodConfig.load(config, getCallback(success));
                 break;
         }
     }
 
-    private Callback getCallback() {
+    private Callback getCallback(String success) {
         return new Callback() {
             @Override
             public void success() {
                 setConfig();
+                if (!TextUtils.isEmpty(success)) Notify.show(success);
             }
 
             @Override

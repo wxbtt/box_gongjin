@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.activity;
+package com.fongmi.android.tv.ui.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,43 +21,44 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.cast.dlna.dmr.DLNARendererService;
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.Updater;
-import com.fongmi.android.tv_gongjin.api.config.LiveConfig;
-import com.fongmi.android.tv_gongjin.api.config.VodConfig;
-import com.fongmi.android.tv_gongjin.api.config.WallConfig;
-import com.fongmi.android.tv_gongjin.bean.Class;
-import com.fongmi.android.tv_gongjin.bean.Config;
-import com.fongmi.android.tv_gongjin.bean.Filter;
-import com.fongmi.android.tv_gongjin.bean.Result;
-import com.fongmi.android.tv_gongjin.bean.Site;
-import com.fongmi.android.tv_gongjin.databinding.ActivityHomeBinding;
-import com.fongmi.android.tv_gongjin.db.AppDatabase;
-import com.fongmi.android.tv_gongjin.event.CastEvent;
-import com.fongmi.android.tv_gongjin.event.RefreshEvent;
-import com.fongmi.android.tv_gongjin.event.ServerEvent;
-import com.fongmi.android.tv_gongjin.impl.Callback;
-import com.fongmi.android.tv_gongjin.impl.ConfigCallback;
-import com.fongmi.android.tv_gongjin.model.SiteViewModel;
-import com.fongmi.android.tv_gongjin.player.Source;
-import com.fongmi.android.tv_gongjin.server.Server;
-import com.fongmi.android.tv_gongjin.ui.base.BaseActivity;
-import com.fongmi.android.tv_gongjin.ui.custom.CustomTitleView;
-import com.fongmi.android.tv_gongjin.ui.dialog.HistoryDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.MenuDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.SiteDialog;
-import com.fongmi.android.tv_gongjin.ui.fragment.HomeFragment;
-import com.fongmi.android.tv_gongjin.ui.fragment.VodFragment;
-import com.fongmi.android.tv_gongjin.ui.presenter.TypePresenter;
-import com.fongmi.android.tv_gongjin.utils.Clock;
-import com.fongmi.android.tv_gongjin.utils.FileChooser;
-import com.fongmi.android.tv_gongjin.utils.FileUtil;
-import com.fongmi.android.tv_gongjin.utils.KeyUtil;
-import com.fongmi.android.tv_gongjin.utils.Notify;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
-import com.fongmi.android.tv_gongjin.utils.UrlUtil;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.Updater;
+import com.fongmi.android.tv.api.config.LiveConfig;
+import com.fongmi.android.tv.api.config.VodConfig;
+import com.fongmi.android.tv.api.config.WallConfig;
+import com.fongmi.android.tv.bean.Button;
+import com.fongmi.android.tv.bean.Class;
+import com.fongmi.android.tv.bean.Config;
+import com.fongmi.android.tv.bean.Filter;
+import com.fongmi.android.tv.bean.Result;
+import com.fongmi.android.tv.bean.Site;
+import com.fongmi.android.tv.databinding.ActivityHomeBinding;
+import com.fongmi.android.tv.db.AppDatabase;
+import com.fongmi.android.tv.event.CastEvent;
+import com.fongmi.android.tv.event.RefreshEvent;
+import com.fongmi.android.tv.event.ServerEvent;
+import com.fongmi.android.tv.impl.Callback;
+import com.fongmi.android.tv.impl.ConfigCallback;
+import com.fongmi.android.tv.model.SiteViewModel;
+import com.fongmi.android.tv.player.Source;
+import com.fongmi.android.tv.server.Server;
+import com.fongmi.android.tv.ui.base.BaseActivity;
+import com.fongmi.android.tv.ui.custom.CustomTitleView;
+import com.fongmi.android.tv.ui.dialog.HistoryDialog;
+import com.fongmi.android.tv.ui.dialog.MenuDialog;
+import com.fongmi.android.tv.ui.dialog.SiteDialog;
+import com.fongmi.android.tv.ui.fragment.HomeFragment;
+import com.fongmi.android.tv.ui.fragment.VodFragment;
+import com.fongmi.android.tv.ui.presenter.TypePresenter;
+import com.fongmi.android.tv.utils.Clock;
+import com.fongmi.android.tv.utils.FileChooser;
+import com.fongmi.android.tv.utils.FileUtil;
+import com.fongmi.android.tv.utils.KeyUtil;
+import com.fongmi.android.tv.utils.Notify;
+import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.tv.utils.UrlUtil;
 import com.github.catvod.utils.Prefers;
 import com.github.catvod.utils.Trans;
 import com.permissionx.guolindev.PermissionX;
@@ -167,7 +168,6 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
         mViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
         mViewModel.result.observe(this, result -> {
             setTypes(mResult = result);
-            App.post(() -> Notify.dismiss(), 200);
         });
     }
 
@@ -197,7 +197,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
         String title = getHome().getName();
         mBinding.title.setText(title.isEmpty() ? ResUtil.getString(R.string.app_name) : title);
         if (getHome().getKey().isEmpty()) return;
-        Notify.progress(this);
+        getHomeFragment().mBinding.progressLayout.showProgress();
         mViewModel.homeContent();
     }
 
@@ -210,6 +210,7 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
         setPager();
         mPageAdapter.notifyDataSetChanged();
         getHomeFragment().addVideo(result);
+        getHomeFragment().mBinding.progressLayout.showContent();
         setFocus();
     }
 
@@ -267,14 +268,13 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
     }
 
     private boolean hasSettingButton() {
-        return Setting.getHomeButtons("").contains("6");
+        return Setting.getHomeButtons(Button.getDefaultButtons()).contains("6");
     }
 
     @Override
     public void onItemClick(Class item) {
         if (mBinding.pager.getCurrentItem() == 0) {
-            if (!hasSettingButton()) MenuDialog.create(this).show();
-            else SiteDialog.create(this).show();
+            SiteDialog.create(this).show();
         } else {
             updateFilter(item);
         }
@@ -288,35 +288,38 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
     @Override
     public void setConfig(Config config) {
+        setConfig(config, "");
+    }
+
+    private void setConfig(Config config, String success) {
         if (config.getUrl().startsWith("file") && !PermissionX.isGranted(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            PermissionX.init(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).request((allGranted, grantedList, deniedList) -> load(config));
+            PermissionX.init(this).permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE).request((allGranted, grantedList, deniedList) -> load(config, success));
         } else {
-            load(config);
+            load(config, success);
         }
     }
 
     public void initConfig() {
         if (isLoading()) return;
-        Notify.progress(this);
         WallConfig.get().init();
         LiveConfig.get().init().load();
-        VodConfig.get().init().load(getCallback());
+        VodConfig.get().init().load(getCallback(""), true);
         setLoading(true);
     }
 
-    private Callback getCallback() {
+    private Callback getCallback(String success) {
         return new Callback() {
             @Override
             public void success() {
-                Notify.dismiss();
                 checkAction(getIntent());
                 RefreshEvent.video();
+                if (!TextUtils.isEmpty(success)) Notify.show(success);
             }
 
             @Override
             public void error(String msg) {
-                Notify.dismiss();
                 if (TextUtils.isEmpty(msg) && AppDatabase.getBackup().exists()) onRestore();
+                getHomeFragment().mBinding.progressLayout.showContent();
                 mResult = Result.empty();
                 Notify.show(msg);
             }
@@ -328,16 +331,16 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
             @Override
             public void success() {
                 if (allGranted) initConfig();
-                else Notify.dismiss();
+                else getHomeFragment().mBinding.progressLayout.showContent();
             }
         }));
     }
 
-    private void load(Config config) {
+    private void load(Config config, String success) {
         switch (config.getType()) {
             case 0:
-                Notify.progress(this);
-                VodConfig.load(config, getCallback());
+                getHomeFragment().mBinding.progressLayout.showProgress();
+                VodConfig.load(config, getCallback(success));
                 break;
         }
     }
@@ -370,11 +373,21 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
     @Override
     public void onRefresh() {
-        Notify.progress(this);
-        FileUtil.clearCache(null);
-        initConfig();
-        App.post(() -> Notify.show(ResUtil.getString(R.string.config_refreshed)), 2000);
+        FileUtil.clearCache(new Callback() {
+            @Override
+            public void success() {
+                setConfig(VodConfig.get().getConfig().json("").save(), ResUtil.getString(R.string.config_refreshed));
+            }
+        });
     }
+
+    @Override
+    public boolean onItemLongClick(Class item) {
+        if (mBinding.pager.getCurrentItem() != 0) return true;
+        onRefresh();
+        return true;
+    }
+
 
     @Override
     public void setSite(Site item) {
@@ -498,12 +511,14 @@ public class HomeActivity extends BaseActivity implements CustomTitleView.Listen
 
     @Override
     protected void onBackPress() {
-        if (mPageAdapter != null && getHomeFragment().mBinding.progressLayout.isProgress()) {
+        if (mBinding.recycler.getSelectedPosition() != 0) {
+            mBinding.recycler.scrollToPosition(0);
+        } else if (mPageAdapter != null && getHomeFragment().mBinding.progressLayout.isProgress()) {
             getHomeFragment().mBinding.progressLayout.showContent();
         } else if (mPageAdapter != null && getHomeFragment().mPresenter != null && getHomeFragment().mPresenter.isDelete()) {
             getHomeFragment().setHistoryDelete(false);
-        } else if (mBinding.recycler.getSelectedPosition() != 0) {
-            mBinding.recycler.scrollToPosition(0);
+        } else if (getHomeFragment().canBack()) {
+            getHomeFragment().goBack();
         } else if (!confirm) {
             setConfirm();
         } else {

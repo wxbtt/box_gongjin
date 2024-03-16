@@ -6,8 +6,9 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.db.AppDatabase;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.db.AppDatabase;
 import com.github.catvod.utils.Prefers;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
@@ -117,6 +118,10 @@ public class Config {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public boolean isCache() {
+        return getTime() + (long)(3600*1000 * Setting.getConfigCache()) > System.currentTimeMillis();
     }
 
     public Config type(int type) {

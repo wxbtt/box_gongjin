@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.activity;
+package com.fongmi.android.tv.ui.activity;
 
 import android.Manifest;
 import android.app.Activity;
@@ -7,37 +7,42 @@ import android.view.View;
 
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv_gongjin.BuildConfig;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.Updater;
-import com.fongmi.android.tv_gongjin.api.config.LiveConfig;
-import com.fongmi.android.tv_gongjin.api.config.VodConfig;
-import com.fongmi.android.tv_gongjin.api.config.WallConfig;
-import com.fongmi.android.tv_gongjin.bean.Config;
-import com.fongmi.android.tv_gongjin.bean.Live;
-import com.fongmi.android.tv_gongjin.bean.Site;
-import com.fongmi.android.tv_gongjin.databinding.ActivitySettingBinding;
-import com.fongmi.android.tv_gongjin.db.AppDatabase;
-import com.fongmi.android.tv_gongjin.event.RefreshEvent;
-import com.fongmi.android.tv_gongjin.impl.Callback;
-import com.fongmi.android.tv_gongjin.impl.ConfigCallback;
-import com.fongmi.android.tv_gongjin.impl.DohCallback;
-import com.fongmi.android.tv_gongjin.impl.LiveCallback;
-import com.fongmi.android.tv_gongjin.impl.ProxyCallback;
-import com.fongmi.android.tv_gongjin.impl.SiteCallback;
-import com.fongmi.android.tv_gongjin.player.ExoUtil;
-import com.fongmi.android.tv_gongjin.ui.base.BaseActivity;
-import com.fongmi.android.tv_gongjin.ui.dialog.ConfigDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.DohDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.HistoryDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.LiveDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.ProxyDialog;
-import com.fongmi.android.tv_gongjin.ui.dialog.SiteDialog;
-import com.fongmi.android.tv_gongjin.utils.FileUtil;
-import com.fongmi.android.tv_gongjin.utils.Notify;
-import com.fongmi.android.tv_gongjin.utils.UrlUtil;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.BuildConfig;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.Updater;
+import com.fongmi.android.tv.api.config.LiveConfig;
+import com.fongmi.android.tv.api.config.VodConfig;
+import com.fongmi.android.tv.api.config.WallConfig;
+import com.fongmi.android.tv.bean.Config;
+import com.fongmi.android.tv.bean.Live;
+import com.fongmi.android.tv.bean.Site;
+import com.fongmi.android.tv.databinding.ActivitySettingBinding;
+import com.fongmi.android.tv.db.AppDatabase;
+import com.fongmi.android.tv.event.RefreshEvent;
+import com.fongmi.android.tv.impl.Callback;
+import com.fongmi.android.tv.impl.ConfigCallback;
+import com.fongmi.android.tv.impl.DohCallback;
+import com.fongmi.android.tv.impl.LiveCallback;
+import com.fongmi.android.tv.impl.ProxyCallback;
+import com.fongmi.android.tv.impl.SiteCallback;
+import com.fongmi.android.tv.player.ExoUtil;
+import com.fongmi.android.tv.ui.base.BaseActivity;
+import com.fongmi.android.tv.ui.dialog.ConfigDialog;
+import com.fongmi.android.tv.ui.dialog.DohDialog;
+import com.fongmi.android.tv.ui.dialog.HistoryDialog;
+import com.fongmi.android.tv.ui.dialog.LiveDialog;
+import com.fongmi.android.tv.ui.dialog.ProxyDialog;
+import com.fongmi.android.tv.ui.dialog.SiteDialog;
+import com.fongmi.android.tv.utils.FileUtil;
+import com.fongmi.android.tv.utils.Notify;
+import com.fongmi.android.tv.utils.ResUtil;
+import com.fongmi.android.tv.utils.UrlUtil;
 import com.github.catvod.bean.Doh;
 import com.github.catvod.net.OkHttp;
+import com.github.catvod.utils.Shell;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.permissionx.guolindev.PermissionX;
 
 import java.util.ArrayList;
@@ -47,6 +52,7 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
 
     private ActivitySettingBinding mBinding;
     private int type;
+    private String[] configCache;
 
     public static void start(Activity activity) {
         activity.startActivity(new Intent(activity, SettingActivity.class));
@@ -77,6 +83,7 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         mBinding.dohText.setText(getDohList()[getDohIndex()]);
         mBinding.versionText.setText(BuildConfig.VERSION_NAME);
         mBinding.proxyText.setText(UrlUtil.scheme(Setting.getProxy()));
+        mBinding.configCacheText.setText((configCache = ResUtil.getStringArray(R.array.select_config_cache))[Setting.getConfigCache()]);
         setCacheText();
     }
 
@@ -96,6 +103,7 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         mBinding.wall.setOnClickListener(this::onWall);
         mBinding.proxy.setOnClickListener(this::onProxy);
         mBinding.cache.setOnClickListener(this::onCache);
+        mBinding.cache.setOnLongClickListener(this::onCacheLongClick);
         mBinding.backup.setOnClickListener(this::onBackup);
         mBinding.player.setOnClickListener(this::onPlayer);
         mBinding.danmu.setOnClickListener(this::onDanmu);
@@ -113,6 +121,8 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         mBinding.wallRefresh.setOnClickListener(this::setWallRefresh);
         mBinding.custom.setOnClickListener(this::onCustom);
         mBinding.doh.setOnClickListener(this::setDoh);
+        mBinding.configCache.setOnClickListener(this::setConfigCache);
+        mBinding.reset.setOnClickListener(this::onReset);
     }
 
     @Override
@@ -277,6 +287,22 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         SettingCustomActivity.start(this);
     }
 
+    private void setConfigCache(View view) {
+        int index = Setting.getConfigCache();
+        Setting.putConfigCache(index = index == configCache.length - 1 ? 0 : ++index);
+        mBinding.configCacheText.setText(configCache[index]);
+    }
+
+    private void onReset(View view) {
+        new MaterialAlertDialogBuilder(this).setTitle(R.string.dialog_reset_app).setMessage(R.string.dialog_reset_app_data).setNegativeButton(R.string.dialog_negative, null).setPositiveButton(R.string.dialog_positive, (dialog, which) -> reset()).show();
+    }
+
+    private void reset() {
+        new Thread(() -> {
+            Shell.exec("pm clear " + App.get().getPackageName());
+        }).start();
+    }
+
     private void setDoh(View view) {
         DohDialog.create(this).index(getDohIndex()).show();
     }
@@ -308,9 +334,21 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         FileUtil.clearCache(new Callback() {
             @Override
             public void success() {
+                VodConfig.get().getConfig().json("").save();
                 setCacheText();
             }
         });
+    }
+
+    private boolean onCacheLongClick(View view) {
+        FileUtil.clearCache(new Callback() {
+            @Override
+            public void success() {
+                setCacheText();
+                setConfig(VodConfig.get().getConfig().json("").save());
+            }
+        });
+        return true;
     }
 
     private void onBackup(View view) {
@@ -326,5 +364,11 @@ public class SettingActivity extends BaseActivity implements ConfigCallback, Sit
         Setting.putBackupAuto(!Setting.isBackupAuto());
         mBinding.backupText.setText(AppDatabase.getDate());
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        RefreshEvent.history();
     }
 }
