@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.receiver;
+package com.fongmi.android.tv.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -12,9 +12,9 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 
 import com.android.cast.dlna.dmr.DLNARendererService;
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.api.config.LiveConfig;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.api.config.LiveConfig;
 
 public class BootReceiver extends BroadcastReceiver {
 

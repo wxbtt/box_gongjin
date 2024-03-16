@@ -1,10 +1,10 @@
-package com.fongmi.android.tv_gongjin.bean;
+package com.fongmi.android.tv.bean;
 
 import android.text.TextUtils;
 
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.utils.ResUtil;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

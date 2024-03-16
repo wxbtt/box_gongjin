@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.custom;
+package com.fongmi.android.tv.ui.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.fongmi.android.tv_gongjin.utils.KeyUtil;
+import com.fongmi.android.tv.utils.KeyUtil;
 
 public class CustomUpDownView extends AppCompatTextView {
 

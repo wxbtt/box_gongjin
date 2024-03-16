@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.presenter;
+package com.fongmi.android.tv.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,8 +6,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.tv_gongjin.bean.Parse;
-import com.fongmi.android.tv_gongjin.databinding.AdapterParseBinding;
+import com.fongmi.android.tv.bean.Parse;
+import com.fongmi.android.tv.databinding.AdapterParseBinding;
 
 public class ParsePresenter extends Presenter {
 

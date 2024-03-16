@@ -1,11 +1,11 @@
-package com.fongmi.android.tv_gongjin.ui.adapter;
+package com.fongmi.android.tv.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.fongmi.android.tv_gongjin.databinding.AdapterMenuBinding;
+import com.fongmi.android.tv.databinding.AdapterMenuBinding;
 
 import java.util.List;
 

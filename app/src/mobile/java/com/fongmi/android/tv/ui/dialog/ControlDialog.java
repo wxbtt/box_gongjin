@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.dialog;
+package com.fongmi.android.tv.ui.dialog;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,19 +11,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.bean.History;
-import com.fongmi.android.tv_gongjin.bean.Parse;
-import com.fongmi.android.tv_gongjin.databinding.ActivityVideoBinding;
-import com.fongmi.android.tv_gongjin.databinding.DialogControlBinding;
-import com.fongmi.android.tv_gongjin.player.Players;
-import com.fongmi.android.tv_gongjin.utils.Timer;
-import com.fongmi.android.tv_gongjin.ui.adapter.ParseAdapter;
-import com.fongmi.android.tv_gongjin.ui.base.ViewType;
-import com.fongmi.android.tv_gongjin.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.bean.History;
+import com.fongmi.android.tv.bean.Parse;
+import com.fongmi.android.tv.databinding.ActivityVideoBinding;
+import com.fongmi.android.tv.databinding.DialogControlBinding;
+import com.fongmi.android.tv.player.Players;
+import com.fongmi.android.tv.utils.Timer;
+import com.fongmi.android.tv.ui.adapter.ParseAdapter;
+import com.fongmi.android.tv.ui.base.ViewType;
+import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.tv.utils.ResUtil;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.slider.Slider;
 

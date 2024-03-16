@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.service;
+package com.fongmi.android.tv.service;
 
 import android.Manifest;
 import android.app.Notification;
@@ -18,12 +18,12 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.media.app.NotificationCompat.MediaStyle;
 
-import com.fongmi.android.tv_gongjin.App;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.event.ActionEvent;
-import com.fongmi.android.tv_gongjin.player.Players;
-import com.fongmi.android.tv_gongjin.receiver.ActionReceiver;
-import com.fongmi.android.tv_gongjin.utils.Notify;
+import com.fongmi.android.tv.App;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.event.ActionEvent;
+import com.fongmi.android.tv.player.Players;
+import com.fongmi.android.tv.receiver.ActionReceiver;
+import com.fongmi.android.tv.utils.Notify;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.activity;
+package com.fongmi.android.tv.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,17 +6,17 @@ import android.content.Intent;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv_gongjin.Product;
-import com.fongmi.android.tv_gongjin.api.config.VodConfig;
-import com.fongmi.android.tv_gongjin.bean.Config;
-import com.fongmi.android.tv_gongjin.bean.Keep;
-import com.fongmi.android.tv_gongjin.databinding.ActivityKeepBinding;
-import com.fongmi.android.tv_gongjin.event.RefreshEvent;
-import com.fongmi.android.tv_gongjin.impl.Callback;
-import com.fongmi.android.tv_gongjin.ui.adapter.KeepAdapter;
-import com.fongmi.android.tv_gongjin.ui.base.BaseActivity;
-import com.fongmi.android.tv_gongjin.ui.custom.SpaceItemDecoration;
-import com.fongmi.android.tv_gongjin.utils.Notify;
+import com.fongmi.android.tv.Product;
+import com.fongmi.android.tv.api.config.VodConfig;
+import com.fongmi.android.tv.bean.Config;
+import com.fongmi.android.tv.bean.Keep;
+import com.fongmi.android.tv.databinding.ActivityKeepBinding;
+import com.fongmi.android.tv.event.RefreshEvent;
+import com.fongmi.android.tv.impl.Callback;
+import com.fongmi.android.tv.ui.adapter.KeepAdapter;
+import com.fongmi.android.tv.ui.base.BaseActivity;
+import com.fongmi.android.tv.ui.custom.SpaceItemDecoration;
+import com.fongmi.android.tv.utils.Notify;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

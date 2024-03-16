@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.fragment;
+package com.fongmi.android.tv.ui.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,21 +13,21 @@ import androidx.leanback.widget.ListRow;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv_gongjin.Product;
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.bean.Collect;
-import com.fongmi.android.tv_gongjin.bean.Result;
-import com.fongmi.android.tv_gongjin.bean.Vod;
-import com.fongmi.android.tv_gongjin.databinding.FragmentVodBinding;
-import com.fongmi.android.tv_gongjin.model.SiteViewModel;
-import com.fongmi.android.tv_gongjin.ui.activity.VideoActivity;
-import com.fongmi.android.tv_gongjin.ui.activity.VodActivity;
-import com.fongmi.android.tv_gongjin.ui.base.BaseFragment;
-import com.fongmi.android.tv_gongjin.ui.custom.CustomRowPresenter;
-import com.fongmi.android.tv_gongjin.ui.custom.CustomScroller;
-import com.fongmi.android.tv_gongjin.ui.custom.CustomSelector;
-import com.fongmi.android.tv_gongjin.ui.presenter.VodPresenter;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.Product;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.bean.Collect;
+import com.fongmi.android.tv.bean.Result;
+import com.fongmi.android.tv.bean.Vod;
+import com.fongmi.android.tv.databinding.FragmentVodBinding;
+import com.fongmi.android.tv.model.SiteViewModel;
+import com.fongmi.android.tv.ui.activity.VideoActivity;
+import com.fongmi.android.tv.ui.activity.VodActivity;
+import com.fongmi.android.tv.ui.base.BaseFragment;
+import com.fongmi.android.tv.ui.custom.CustomRowPresenter;
+import com.fongmi.android.tv.ui.custom.CustomScroller;
+import com.fongmi.android.tv.ui.custom.CustomSelector;
+import com.fongmi.android.tv.ui.presenter.VodPresenter;
+import com.fongmi.android.tv.utils.ResUtil;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;

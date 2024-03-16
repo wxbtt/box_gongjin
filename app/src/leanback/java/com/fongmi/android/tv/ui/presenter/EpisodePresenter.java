@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.presenter;
+package com.fongmi.android.tv.ui.presenter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.leanback.widget.Presenter;
 
-import com.fongmi.android.tv_gongjin.Product;
-import com.fongmi.android.tv_gongjin.bean.Episode;
-import com.fongmi.android.tv_gongjin.databinding.AdapterEpisodeBinding;
+import com.fongmi.android.tv.Product;
+import com.fongmi.android.tv.bean.Episode;
+import com.fongmi.android.tv.databinding.AdapterEpisodeBinding;
 
 public class EpisodePresenter extends Presenter {
 

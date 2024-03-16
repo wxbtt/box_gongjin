@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.utils;
+package com.fongmi.android.tv.utils;
 
 import android.view.KeyEvent;
 

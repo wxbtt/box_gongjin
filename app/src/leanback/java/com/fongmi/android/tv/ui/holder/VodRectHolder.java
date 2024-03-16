@@ -1,12 +1,12 @@
-package com.fongmi.android.tv_gongjin.ui.holder;
+package com.fongmi.android.tv.ui.holder;
 
 import androidx.annotation.NonNull;
 
-import com.fongmi.android.tv_gongjin.bean.Vod;
-import com.fongmi.android.tv_gongjin.databinding.AdapterVodRectBinding;
-import com.fongmi.android.tv_gongjin.ui.base.BaseVodHolder;
-import com.fongmi.android.tv_gongjin.ui.presenter.VodPresenter;
-import com.fongmi.android.tv_gongjin.utils.ImgUtil;
+import com.fongmi.android.tv.bean.Vod;
+import com.fongmi.android.tv.databinding.AdapterVodRectBinding;
+import com.fongmi.android.tv.ui.base.BaseVodHolder;
+import com.fongmi.android.tv.ui.presenter.VodPresenter;
+import com.fongmi.android.tv.utils.ImgUtil;
 
 public class VodRectHolder extends BaseVodHolder {
 

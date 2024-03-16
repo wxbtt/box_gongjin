@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.adapter;
+package com.fongmi.android.tv.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.databinding.AdapterKeyboardIconBinding;
-import com.fongmi.android.tv_gongjin.databinding.AdapterKeyboardTextBinding;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.databinding.AdapterKeyboardIconBinding;
+import com.fongmi.android.tv.databinding.AdapterKeyboardTextBinding;
 
 import java.util.Arrays;
 import java.util.List;

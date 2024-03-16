@@ -1,11 +1,11 @@
-package com.fongmi.android.tv_gongjin.ui.base;
+package com.fongmi.android.tv.ui.base;
 
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fongmi.android.tv_gongjin.bean.Episode;
+import com.fongmi.android.tv.bean.Episode;
 
 public abstract class BaseEpisodeHolder extends RecyclerView.ViewHolder {
 

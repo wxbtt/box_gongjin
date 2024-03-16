@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.dialog;
+package com.fongmi.android.tv.ui.dialog;
 
 import android.content.DialogInterface;
 import android.text.TextUtils;
@@ -10,15 +10,15 @@ import android.view.inputmethod.EditorInfo;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentActivity;
 
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.databinding.DialogUaBinding;
-import com.fongmi.android.tv_gongjin.event.ServerEvent;
-import com.fongmi.android.tv_gongjin.impl.UaCallback;
-import com.fongmi.android.tv_gongjin.server.Server;
-import com.fongmi.android.tv_gongjin.ui.custom.CustomTextListener;
-import com.fongmi.android.tv_gongjin.utils.QRCode;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.databinding.DialogUaBinding;
+import com.fongmi.android.tv.event.ServerEvent;
+import com.fongmi.android.tv.impl.UaCallback;
+import com.fongmi.android.tv.server.Server;
+import com.fongmi.android.tv.ui.custom.CustomTextListener;
+import com.fongmi.android.tv.utils.QRCode;
+import com.fongmi.android.tv.utils.ResUtil;
 import com.github.catvod.utils.Util;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 

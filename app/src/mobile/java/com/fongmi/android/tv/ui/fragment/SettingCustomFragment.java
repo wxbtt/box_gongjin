@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.fragment;
+package com.fongmi.android.tv.ui.fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 
-import com.fongmi.android.tv_gongjin.R;
-import com.fongmi.android.tv_gongjin.Setting;
-import com.fongmi.android.tv_gongjin.databinding.FragmentSettingCustomBinding;
-import com.fongmi.android.tv_gongjin.event.RefreshEvent;
-import com.fongmi.android.tv_gongjin.ui.base.BaseFragment;
-import com.fongmi.android.tv_gongjin.utils.ResUtil;
+import com.fongmi.android.tv.R;
+import com.fongmi.android.tv.Setting;
+import com.fongmi.android.tv.databinding.FragmentSettingCustomBinding;
+import com.fongmi.android.tv.event.RefreshEvent;
+import com.fongmi.android.tv.ui.base.BaseFragment;
+import com.fongmi.android.tv.utils.ResUtil;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Locale;

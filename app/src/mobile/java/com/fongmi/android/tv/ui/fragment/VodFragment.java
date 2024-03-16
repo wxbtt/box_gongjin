@@ -1,4 +1,4 @@
-package com.fongmi.android.tv_gongjin.ui.fragment;
+package com.fongmi.android.tv.ui.fragment;
 
 import android.Manifest;
 import android.app.Activity;
