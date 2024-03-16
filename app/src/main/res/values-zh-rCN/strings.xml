@@ -151,8 +151,8 @@
     <string name="error_empty">找不到数据</string>
 
     <!-- Update -->
-    <string name="update_version">发现新版本 <xliff:g name="name">%s</xliff:g></string>
-    <string name="update_check">请关注「插兜的干货仓库」获取最新版本</string>
+    <string name="update_version">关注「插兜的干货仓库」: 发现新版本 <xliff:g name="name">%s</xliff:g></string>
+    <string name="update_check">版本（支持自动更新） </string>
     <string name="update_confirm">更新</string>
 
     <!-- Crash -->
