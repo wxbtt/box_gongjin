@@ -10,8 +10,8 @@ android {
         applicationId "com.gongjin.android.tv"
         minSdk 21
         targetSdk 28
-        versionCode 1001
-        versionName "10.0.1"
+        versionCode 1002
+        versionName "10.0.2"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
