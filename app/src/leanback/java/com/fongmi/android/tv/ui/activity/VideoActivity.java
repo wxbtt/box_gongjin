@@ -87,6 +87,7 @@ import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.Sniffer;
 import com.fongmi.android.tv.utils.Traffic;
 import com.fongmi.android.tv.utils.Util;
+import com.fongmi.android.tv.utils.filter;
 import com.github.bassaer.library.MDColor;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Trans;
@@ -571,23 +572,24 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     }
 
     private void setDetail(Vod item) {
-        String prefix = "🔥插兜的干货仓库: ";
+//        String prefix = "";
         mBinding.progressLayout.showContent();
         mBinding.video.setTag(item.getVodPic(getPic()));
-        mBinding.name.setText(item.getVodName(getName()));
-        setText(mBinding.remark, 0, item.getVodRemarks());
-        setText(mBinding.year, R.string.detail_year, item.getVodYear());
-        setText(mBinding.area, R.string.detail_area, item.getVodArea());
-        setText(mBinding.type, R.string.detail_type, item.getTypeName());
-        setText(mBinding.site, R.string.detail_site, getSite().getName());
-        setText(mBinding.actor, R.string.detail_actor, Html.fromHtml(item.getVodActor()).toString());
-        setText(mBinding.content, R.string.detail_content, prefix + Html.fromHtml(item.getVodContent()).toString());
-        setText(mBinding.director, R.string.detail_director, Html.fromHtml(item.getVodDirector()).toString());
+        mBinding.name.setText(filter.filterString(item.getVodName(getName())));
+        setText(mBinding.remark, 0, filter.filterString(item.getVodRemarks()));
+        setText(mBinding.year, R.string.detail_year, filter.filterString(item.getVodYear()));
+        setText(mBinding.area, R.string.detail_area, filter.filterString(item.getVodArea()));
+        setText(mBinding.type, R.string.detail_type, filter.filterString(item.getTypeName()));
+        setText(mBinding.site, R.string.detail_site, filter.filterString(getSite().getName()));
+        setText(mBinding.actor, R.string.detail_actor, Html.fromHtml(filter.filterString(item.getVodActor())).toString());
+        setText(mBinding.content, R.string.detail_content, Html.fromHtml(filter.filterString(item.getVodContent())).toString());
+//        setText(mBinding.content, R.string.detail_content, Html.fromHtml(Vod.FilterStringCache.filterString(item.getVodContent()).toString()));
+        setText(mBinding.director, R.string.detail_director, Html.fromHtml(filter.filterString(item.getVodDirector())).toString());
         mFlagAdapter.setItems(item.getVodFlags(), null);
         mBinding.content.setMaxLines(getMaxLines());
         mBinding.video.requestFocus();
         setArtwork(item.getVodPic());
-        getPart(item.getVodName());
+        getPart(filter.filterString(item.getVodName()));
         App.removeCallbacks(mR4);
         checkHistory(item);
         checkFlag(item);
