@@ -572,19 +572,17 @@ public class VideoActivity extends BaseActivity implements CustomKeyDownVod.List
     }
 
     private void setDetail(Vod item) {
-//        String prefix = "";
         mBinding.progressLayout.showContent();
         mBinding.video.setTag(item.getVodPic(getPic()));
         mBinding.name.setText(filter.filterString(item.getVodName(getName())));
-        setText(mBinding.remark, 0, filter.filterString(item.getVodRemarks()));
-        setText(mBinding.year, R.string.detail_year, filter.filterString(item.getVodYear()));
-        setText(mBinding.area, R.string.detail_area, filter.filterString(item.getVodArea()));
-        setText(mBinding.type, R.string.detail_type, filter.filterString(item.getTypeName()));
-        setText(mBinding.site, R.string.detail_site, filter.filterString(getSite().getName()));
-        setText(mBinding.actor, R.string.detail_actor, Html.fromHtml(filter.filterString(item.getVodActor())).toString());
-        setText(mBinding.content, R.string.detail_content, Html.fromHtml(filter.filterString(item.getVodContent())).toString());
-//        setText(mBinding.content, R.string.detail_content, Html.fromHtml(Vod.FilterStringCache.filterString(item.getVodContent()).toString()));
-        setText(mBinding.director, R.string.detail_director, Html.fromHtml(filter.filterString(item.getVodDirector())).toString());
+        setText(mBinding.remark, 0, item.getVodRemarks());
+        setText(mBinding.year, R.string.detail_year, item.getVodYear());
+        setText(mBinding.area, R.string.detail_area, item.getVodArea());
+        setText(mBinding.type, R.string.detail_type, item.getTypeName());
+        setText(mBinding.site, R.string.detail_site, getSite().getName());
+        setText(mBinding.actor, R.string.detail_actor, Html.fromHtml(item.getVodActor()).toString());
+        setText(mBinding.content, R.string.detail_content, Html.fromHtml(item.getVodContent()).toString());
+        setText(mBinding.director, R.string.detail_director, Html.fromHtml(item.getVodDirector()).toString());
         mFlagAdapter.setItems(item.getVodFlags(), null);
         mBinding.content.setMaxLines(getMaxLines());
         mBinding.video.requestFocus();
