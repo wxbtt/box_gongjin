@@ -11,7 +11,7 @@ android {
         minSdk 21
         targetSdk 28
         versionCode 1003
-        versionName "10.0.3"
+        versionName "10.0.3a"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
@@ -55,6 +55,7 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
 
