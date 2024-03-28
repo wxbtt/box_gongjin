@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.fongmi.android.tv.utils.filter;
+import com.fongmi.android.tv.utils.CustomUtil;
 
 @Root(strict = false)
 public class Vod implements Parcelable {
@@ -154,15 +154,15 @@ public class Vod implements Parcelable {
     }
 
     public String getVodContent() {
-        return TextUtils.isEmpty(vodContent) ? "" : "\uD83D\uDCFA公瑾TV:"+filter.filterString(vodContent.trim().replace("\n", "<br>"));
+        return TextUtils.isEmpty(vodContent) ? "" : CustomUtil.getPrefix()+ CustomUtil.filterString(vodContent).trim().replace("\n", "<br>");
     }
 
     public String getVodPlayFrom() {
-        return TextUtils.isEmpty(vodPlayFrom) ? "" : "\uD83D\uDCFA公瑾TV:"+vodPlayFrom;
+        return TextUtils.isEmpty(vodPlayFrom) ? "" : CustomUtil.getPrefix()+vodPlayFrom;
     }
 
     public String getVodPlayUrl() {
-        return TextUtils.isEmpty(vodPlayUrl) ? "" : "\uD83D\uDCFA公瑾TV: "+vodPlayUrl;
+        return TextUtils.isEmpty(vodPlayUrl) ? "" : CustomUtil.getPrefix()+vodPlayUrl;
     }
 
     public String getVodTag() {
@@ -267,13 +267,13 @@ public class Vod implements Parcelable {
         String[] playUrls = getVodPlayUrl().split("\\$\\$\\$");
         for (int i = 0; i < playFlags.length; i++) {
             if (playFlags[i].isEmpty() || i >= playUrls.length) continue;
-            Flag item = Flag.create(filter.filterString(playFlags[i].trim()));
-            item.createEpisode(filter.filterString(playUrls[i]));
+            Flag item = Flag.create(CustomUtil.filterString(playFlags[i].trim()));
+            item.createEpisode(CustomUtil.filterString(playUrls[i]));
             getVodFlags().add(item);
         }
         for (Flag item : getVodFlags()) {
             if (item.getUrls() == null) continue;
-            item.createEpisode(filter.filterString(item.getUrls()));
+            item.createEpisode(CustomUtil.filterString(item.getUrls()));
         }
     }
 
