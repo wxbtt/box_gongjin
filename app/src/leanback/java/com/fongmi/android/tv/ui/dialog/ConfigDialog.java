@@ -21,7 +21,6 @@ import com.fongmi.android.tv.event.ServerEvent;
 import com.fongmi.android.tv.impl.ConfigCallback;
 import com.fongmi.android.tv.server.Server;
 import com.fongmi.android.tv.ui.custom.CustomTextListener;
-import com.fongmi.android.tv.utils.CustomUtil;
 import com.fongmi.android.tv.utils.QRCode;
 import com.fongmi.android.tv.utils.ResUtil;
 import com.fongmi.android.tv.utils.UrlUtil;
@@ -161,9 +160,11 @@ public class ConfigDialog implements DialogInterface.OnDismissListener {
         String name = binding.name.getText().toString().trim();
         String text = UrlUtil.fixUrl(binding.text.getText().toString().trim());
         if (edit) Config.find(url, type).url(text).update();
+//        if (text.isEmpty()) Config.delete(url, type);
         if (text.isEmpty()) {
-            url = CustomUtil.getSource();
-            Config.find(url, 1).name(CustomUtil.getTitle()).update();
+//            url = "assets://js/main.json";
+            url = "https://atomgit.com/lintech/tms/raw/master/source/stable/main.json";
+            Config.find(url, 1).name("关注「插兜的干货仓库」").update();
         }
         if (name.isEmpty()) callback.setConfig(Config.find(text, type));
         else callback.setConfig(Config.find(text, name, type));

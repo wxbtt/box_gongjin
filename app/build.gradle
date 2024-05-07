@@ -7,11 +7,11 @@ android {
     flavorDimensions = ["mode", "api", "abi"]
 
     defaultConfig {
-        applicationId "com.gongjin.android.tv"
+        applicationId "com.fongmi.android.tv"
         minSdk 21
         targetSdk 28
-        versionCode 1014
-        versionName "10.1.4"
+        versionCode 233
+        versionName "0506"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
@@ -55,7 +55,6 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
         }
     }
 
