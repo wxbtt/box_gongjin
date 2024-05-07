@@ -108,7 +108,7 @@ public class LiveConfig {
             }
             parseConfig(Decoder.getJson(url), callback);
         } catch (Throwable e) {
-            if (TextUtils.isEmpty(config.getUrl())) App.post(() -> callback.error(""));
+            if (TextUtils.isEmpty(config.getUrl())) App.post(() -> callback.error("插兜：未配置源地址"));
             else App.post(() -> callback.error(Notify.getError(R.string.error_config_get, e)));
             e.printStackTrace();
         }

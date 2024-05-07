@@ -67,6 +67,7 @@ public class VodConfig {
 
     public static String getUrl() {
         return get().getConfig().getUrl();
+        // return "https://codeberg.org/bestpvp/tm/raw/branch/main/source/stable/main.json";
     }
 
     public static String getDesc() {

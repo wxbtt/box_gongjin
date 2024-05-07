@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.fongmi.android.tv",
+  "variantName": "leanbackPythonArmeabi_v7aRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 224,
+      "versionName": "2.2.4",
+      "outputFile": "leanback-python-armeabi_v7a.apk"
+    }
+  ],
+  "elementType": "File"
+}
