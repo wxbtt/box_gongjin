@@ -1,5 +1,7 @@
 package com.fongmi.android.tv.utils;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 
 import java.util.Locale;
@@ -24,7 +26,7 @@ public class LanguageUtil {
 
     private static Locale getLocale(int lang) {
         if (lang == 0) return Locale.ENGLISH;
-        else if (lang == 1) return Locale.SIMPLIFIED_CHINESE;
+        else if (lang == 1) return Locale.CHINESE;
         else if (lang == 2) return Locale.TRADITIONAL_CHINESE;
         else return Locale.ENGLISH;
     }
