@@ -2,9 +2,9 @@ package com.fongmi.android.tv.player;
 
 import android.net.Uri;
 
-import com.fongmi.android.tv.server.Server;
 import com.fongmi.android.tv.bean.Channel;
 import com.fongmi.android.tv.bean.Result;
+import com.fongmi.android.tv.server.Server;
 import com.fongmi.android.tv.utils.Sniffer;
 import com.fongmi.android.tv.utils.UrlUtil;
 

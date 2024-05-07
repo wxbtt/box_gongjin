@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 29,
-    "identityHash": "fe3a6989063bdf1f7fad4037f38f3b97",
+    "version": 30,
+    "identityHash": "0e0f8a59490a282acc85e2c2f5f133a7",
     "entities": [
       {
         "tableName": "Keep",
@@ -206,7 +206,7 @@
       },
       {
         "tableName": "Config",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `type` INTEGER NOT NULL, `time` INTEGER NOT NULL, `url` TEXT, `json` TEXT, `name` TEXT, `home` TEXT, `parse` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `type` INTEGER NOT NULL, `time` INTEGER NOT NULL, `url` TEXT, `json` TEXT, `name` TEXT, `home` TEXT, `logo` TEXT, `parse` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -247,6 +247,12 @@
           {
             "fieldPath": "home",
             "columnName": "home",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "logo",
+            "columnName": "logo",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -452,7 +458,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fe3a6989063bdf1f7fad4037f38f3b97')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0e0f8a59490a282acc85e2c2f5f133a7')"
     ]
   }
 }
