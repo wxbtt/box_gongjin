@@ -445,7 +445,7 @@ public class Setting {
     }
 
     public static int getHomeUI() {
-        return Prefers.getInt("home_ui", 1);
+        return Prefers.getInt("home_ui", 0);
     }
 
     public static void putHomeButtons(String buttons) {
@@ -477,7 +477,7 @@ public class Setting {
     }
 
     public static int getConfigCache() {
-        return Math.min(Prefers.getInt("config_cache", 0), 2);
+        return Math.min(Prefers.getInt("config_cache", 1), 2);
     }
 
     public static void putLanguage(int key) {
